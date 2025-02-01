@@ -1,56 +1,29 @@
-# PXVDI
-Proxmox VDI solution.
+---
+icon: hand-wave
+cover: https://gitbookio.github.io/onboarding-template-images/header.png
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: full
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
 
-Pxvdi is a vdi client for proxmox ve. Power by lierfang.com.
+# Welcome
 
-We use proxmox-ve's api to obtain the ip address of the vm and then invoke an external program to connect to the virtual machine desktop through this ip address.
+Welcome to the GitBook Starter Template! Here you'll get an overview of all the amazing features GitBook offers to help you build beautiful, interactive documentation.
 
-## Protocols
-We support RDP/spice/horizon protocols.
+You'll see some of the best parts of GitBook in action — and find help on how you can turn this template into your own.
 
+### Jump right in
 
-
-## Dual management mode
-
-PXVDI has two modes
-
-### Direct connection mode
-
-The client directly calls the api of Proxmox VE.User registration and permissions are managed by pve.
-
-### Master control mode
-
-We built a service application (pxvdi-server) that centrally manages the pve cluster, has independent permission management, and also supports external ldap.
-
-The client requests our pxvdi-server api interface.
-
-## Architecture
-
-### Client
-
-The desktop program is based on the tauri framework
-
-    - PXVDI-linux
-        - freerdp
-        - remote-viewer
-        - horizon client
-
-    - PXVDI-Windows
-        - tauri 
-        - axmsrdp
-        - remote-viewer
-        - horizon client
-
-    - PXVDI-Macos
-        - tauri 
-        - MacFreerdp
-        - remote-viewer
-        - horizon client
-
-    - PXVDI-html
-        - guacamole
-
-
-## Notice
-
-This repository hosts only documents
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Getting Started</strong></td><td>Create your first site</td><td></td><td></td><td><a href="getting-started/quickstart.md">quickstart.md</a></td></tr><tr><td><strong>Basics</strong></td><td>Learn the basics of GitBook</td><td></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Publish your docs</strong></td><td>Share your docs online</td><td></td><td></td><td><a href="getting-started/publish-your-docs.md">publish-your-docs.md</a></td></tr></tbody></table>
