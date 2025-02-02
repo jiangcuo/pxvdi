@@ -12,28 +12,28 @@ PXVDI是基于Proxmox VE为底层的桌面虚拟化产品，由梨儿方开发�
 
 ### PXVDI 双模式
 
-#### &#x20;直连模式
+#### 直连模式
 
 客户端直接和Proxmox VE api互通，支持快照、自动开机、还原等额外功能功能
 
 #### 总控模式
 
-我们开发了一套后台管理系统，用于管理Proxmox VE集群，同时支持外部的用户认证，用户账号自动注册，批量管理等多功能。&#x20;
+我们开发了一套后台管理系统，用于管理Proxmox VE集群，同时支持外部的用户认证，用户账号自动注册，批量管理等多功能。
 
 客户端请求服务端的API，用户权限、虚拟机资源、连接协议由服务端控制
 
-### &#x20;软件架构&#x20;
+### 软件架构 
 
 桌面客户端基于tauri框架。
 
 PXVDI-Desktop 组件
 
-* freerdp&#x20;
-* remote-viewer&#x20;
+* freerdp
+* remote-viewer
 * horizon client
 * axmsrdp (Windows)
 
 PXVDI-html
 
-* &#x20;guacamole
+* guacamole
 
