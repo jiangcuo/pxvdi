@@ -156,6 +156,7 @@ pveum role add PxvdiUsers --privs "VM.Audit VM.Snapshot.Rollback VM.Console VM.P
 ![pve网页添加用户](../img/pxvdiadduser.png "pve-adduser")
 
 添加好了，可以在网页上看到，此时我们就可以按照第三章给他分配资源权限。还可以在这个页面修改用户信息或者修改密码。
+
 ![pve网页查看用户](../img/pxvdishowuser.png "pve-showuser")
 
 
