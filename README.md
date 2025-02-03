@@ -24,6 +24,7 @@ PXVDI是基于Proxmox VE为底层的桌面虚拟化产品，由梨儿方开发�
 
 ### 软件架构 
 
+
 桌面客户端基于tauri框架。
 
 PXVDI-Desktop 组件
