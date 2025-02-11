@@ -181,7 +181,7 @@ pveum role add PxvdiUsers --privs "VM.Audit VM.Snapshot.Rollback VM.Console VM.P
 
 点击此链接 下载最新的iso 
 
-https://download.lierfang.com/pxvdi/pxvdi-linux/latest/pxvdi_2_latest_live_amd64.iso
+https://download.lierfang.com/pxvdi/Client/iso/pxvdi_lastest_live_amd64.iso
 
 请上传到PVE中，使用PVE启动该ISO，即可快速启动
 
