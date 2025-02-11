@@ -8,7 +8,7 @@ PXVDI是基于Proxmox VE为底层的桌面虚拟化产品，由梨儿方开发�
 
 我们利用Proxmox VE API获取虚拟机的ip，调用外部的程序去访问到虚拟机。
 
-支持 RDP/spice/horizon 3重协议。
+支持 RDP/spice/horizon 3种协议。
 
 ### PXVDI 双模式
 
