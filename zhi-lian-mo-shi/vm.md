@@ -1,136 +1,142 @@
-# Proxmox VE 虚拟机管理
+# Proxmox VE Virtual Machine Management
 
-## 虚拟机的最佳配置
+## Optimal Configuration for Virtual Machines
 
-虚拟机配置多种多样，我们只推荐使用该种配置，这种配置在我们的生产中，性能和稳定性都是最佳的。
+The configuration of virtual machines can vary widely, but we only recommend this specific configuration, as it has demonstrated the best performance and stability in our production environment.
 
-| 配置  | 类型 | 优点  | 缺点 | 
+| Configuration Items  | Type | Advantages  | Disadvantages | 
 | ------- | ------ | ------ |------ |
-| CPU  | host/max/默认 | 该类型可以将cpu信息透传到虚拟机。  | 不同CPU之间的在线迁移，可能会有问题。 |
-| BIOS | UEFI| UEFI可以支持Windows11，如果是win7以下的VM，请勿选择。   | 不支持win7以下VM。 |
-| 显示 1 | Virtio-GPU | Virtio-GPU可以提供更好的性能。支持SPICE/VNC/RDP等访问。 | Virtio-GPU不支持Win7，都需要VM安装驱动。 |
-| 显示 2 | spice | 在SPICE的场景中，可以提供更好的性能。支持SPICE/RDP/VNC  | 需要VM安装驱动，需要spice客户端。 |
-| 显示 3| Nvidia vGPU  | 在使用Nvidia-vGPU的场景下适用。提供vGPU的功能。SPICE/RDP/VNC | 需要Nvidia vGPU驱动。|
-| scsi控制器                 | VirtIO SCSI single                                           | 提供更好的io吞吐量。                                    | 需要VM安装驱动。 |
-| 磁盘                       | SCSI                                                         | 提供更好的io吞吐量，以及热插拔的支持。                  | 需要VM安装驱动。 |
-| 网络                       | virtio                                                       | 提供更好的io吞吐量。                                    | 需要VM安装驱动。 |
-| EFI磁盘                    | 预注册密钥                                                   | 提供安全启动。                                          | 需要VM内的系统支持安全启动。 |
-| TPM                        | 2.0                                                          | 提供安全设备。                                          | 需要存储是块存储，如lvm-thin/ZFS/CEPH，才能快照。 |
-| USB                        | spice                                                        | 提供一个虚拟的usb，供SPICE使用。                        |  |
-| 其他配置（位于VM的选项页）| 
-| Qemu-ga   | 必须启用  | 提供Proxmox VE和VM的通信接口。 | 需要VM内安装qemu-ga |
-| OS类型                     | 必须选对                                                     | Proxmox VE会根据OS类型进行配置优化。                    |  |
-| SPICE增强                  | 需要开启                                                     | 在使用SPICE的时候会增强性能，如文件夹共享，使用视频流。 | 需要更多的带宽。 |
-| KVM硬件虚拟化              | 必须启用                                                     | 提供KVM硬件加速。                                       | 
+| CPU  | host/max/default | This type can pass through CPU information to the virtual machine.  | Online migration between different CPUs may encounter issues. |
+| BIOS | UEFI| UEFI supports Windows 11. If the VM is running Windows 7 or earlier, please do not select it.”   | Does not support VMs running Windows 7 or earlier. |
+| vga 1 | Virtio-GPU | Virtio-GPU can provide better performance and supports access via SPICE, VNC, RDP, and other protocols. | Virtio-GPU does not support Windows 7, and drivers need to be installed on the VM.|
+| vga 2 | spice | In a SPICE scenario, it can provide better performance. Supports SPICE, RDP, and VNC.| equires the VM to install drivers and needs a SPICE client. |
+| vga 3| Nvidia vGPU  | Applicable in scenarios using Nvidia vGPU. Provides vGPU functionality. Supports SPICE, RDP, and VNC | Requires Nvidia vGPU drivers.|
+| SCSI controller                 | VirtIO SCSI single                                           | provides better I/O throughput                                    | Description |
+| Disk type                       | SCSI                                                         | provides better I/O throughput and supports hot-swapping.                   | Description |
+| Network Card                       | virtio                                                       | provides better I/O throughput                                    | Description |
+| EFI disk                   | pre-enroll keys key                                                   | Provides secure boot                                          | The operating system within the VM needs to support secure boot. |
+| TPM                        | 2.0                                                          | Provides TPM devices.                                          | Snapshots require the storage to be block storage, such as LVM-thin, ZFS, or CEPH. |
+| USB                        | spice                                                        | Provides a virtual USB for SPICE usage.                        |  |
+|Other configurations (located in the VM options page).| 
+| Qemu-ga   | Must be enabled.  | Provides communication interfaces between Proxmox VE and virtual machines. | QEMU Guest Agent needs to be installed inside the VM.|
+| OSType                     | Must be selected correctly.                                                     | Proxmox VE will optimize the configuration based on the OS type.                    |  |
+| SPICE增强                  | Needs to be enabled.                                                    | Using SPICE enhances performance, such as folder sharing and video streaming. | Requires more bandwidth. |
+| KVM hardware virtualization.             | Must be enabled.                                                     | Provides KVM hardware acceleration.                                       | 
  |
 
 
-### 1. CPU设置
-| 类型   | 值   | 说明                                                                                                                                |
+### 1. CPU configuration.
+| Type   | Value   | Description                                                                                                                          |
 | -------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| 插槽   | 1    | 这是cpu的物理数量，如果是1则代表单路，如果是2就代表双路。推荐为1。                                                                  |
-| 核心   | 4    | 这是系统里面cpu的最大数量，比如设置为4，则是4核                                                                                     |
-| 类型   | 默认 | 默认具有最好的兼容性，参考[https://foxi.buduanwang.vip/virtualization/599.html/](https://foxi.buduanwang.vip/virtualization/599.html/) |
-| 其他值 | 默认 | 一些高级选项，如果不了解，可能会适得其反，推荐默认                                                                                  |
+| socket   | 1    | This is the physical number of CPUs; if it is 1, it represents a single socket, and if it is 2, it represents a dual socket. Recommended value is 1.                                                                  |
+| cors   | 4    | This is the maximum number of CPUs in the system; for example, if set to 4, it represents 4 cores.                                                                                     |
+| type   | default | Default provides the best compatibility, refer to guide[https://foxi.buduanwang.vip/virtualization/599.html/](https://foxi.buduanwang.vip/virtualization/599.html/) |
+| other | default | Some advanced options may have adverse effects if not understood; it is recommended to stick with the defaults.                                                                                |
 
-### 2. 内存的配置
+### 2. Memory configuration.
 
-| 类型          | 值   | 说明                                                                                                                         |
+| Type          | Value   | Description                                                                                                                        |
 | --------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| 内存          | 8192 | 单位mb，总内存大小                                                                                                           |
-| balloning设备 | 关闭 | 内存回收，先给你这么多内存，如果主机内存不够，会拿出虚拟机的内存出来。如果需要节约内存，可以开启。如果为了稳定，请不要开启。 |
+| Memory          | 8192 | Unit: MB, total memory size                                                                                                           |
+| Ballooning | off | Memory ballooning allows you to allocate a certain amount of memory initially. If the host runs low on memory, it can reclaim memory from the virtual machine. You can enable it to save memory, but for stability, it is recommended not to enable it. |
 
-> 注意这里的balloning设备不是 用多少给多少，而是先给你所有，如果不够再拿来用。
+> Note that the ballooning device does not allocate memory based on usage; it initially provides all the allocated memory, and only reclaims it if the host runs low on memory.
 
 ### 3. BIOS
-| 值   | 说明                                |
+| Value   | Description                              |
 | ------ | ------------------------------------- |
-| OVMF | 现代的UEFI bios模型，支持安全启动。 |
+| OVMF | Modern UEFI BIOS models support Secure Boot. |
 
 ### 4. vga
-| 值     | 说明                                                                                     |
+| Value     | Description                                                                                    |
 | -------- | ------------------------------------------------------------------------------------------ |
-| virtio | 这是最佳的选项                                                                           |
-| spice  | spice连接时需要                                                                          |
-| mdev   | 当使用Nvidia vGPU的时候，控制台将显示vGPU的画面。（此功能非官方功能，仅PXVDI服务端可用） |
+| virtio | This is the optimal option.                                                                           |
+| spice  | SPICE connection requires                                                                   |
+| mdev   | When using Nvidia vGPU, the web console will display the vGPU output. (This feature is unofficial and available only with PXVIRT. )|
 
 
-### 5. 机型
-| 类型 | 说明                            |
+### 5. Machine
+| Type | Description                           |
 | ------ | --------------------------------- |
-| q35  | q35是现代的主板模型，有Pcie支持 |
+| q35  | Q35 is a modern motherboard model with PCIe support. |
 
-### 6. 磁盘控制器
+### 6. Scsi Controller
 
-| 类型               | 说明                                                                                                                                                                                     |
+| Type               | Description                                                                                                                                                                                 |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| VirtIO SCSI Single | 半虚拟化性能最好。注意在Windows虚拟机中，需要安装磁盘控制器驱动。参考[https://foxi.buduanwang.vip/virtualization/pve/1214.html/](https://foxi.buduanwang.vip/virtualization/pve/1214.html/) |
+| VirtIO SCSI Single | Paravirtualization offers the best performance. Note that in Windows virtual machines, you need to install the disk controller driver. Reference[https://foxi.buduanwang.vip/virtualization/pve/1214.html/](https://foxi.buduanwang.vip/virtualization/pve/1214.html/) |
 
 
-### 7. 磁盘设备
+### 7. Disk device
 
-| 类型     | 值   | 说明                                                               |
+| Type     | Value   | Description                                                            |
 | ---------- | ------ | -------------------------------------------------------------------- |
-| 设备类型 | SCSI | 使用SCSI可以获取更好的性能，以及热插拔支持。需要安装磁盘控制器驱动 |
-| SSD仿真  | 启用 | 启用之后，磁盘在系统内识别为SSD，并且支持TRIM                      |
-| 丢弃     | 启用 | 启用TRIM，系统会定期进行磁盘底层清理，以节约更多的磁盘空间         |
+| Device Type | SCSI | Using SCSI can provide better performance and hot-swapping support. You need to install the disk controller driver. |
+| SSD Emulation  | enable | Once enabled, the disk is recognized as an SSD by the system and supports TRIM.             |
+| TRIM     | enable | Enabling TRIM allows the system to periodically perform low-level disk cleanup to save more disk space.       |
 
 
-### 8. 网络设备
+### 8. Network Card
 
-| 类型   | 说明                                                      |
+| Type   | Description                                                   |
 | -------- | ----------------------------------------------------------- |
-| VirtIO | 半虚拟化性能最好。注意在Windows虚拟机中，需要安装网卡驱动 |
+| VirtIO | Paravirtualization offers the best performance. Note that in Windows virtual machines, you need to install the network card driver. |
 
 
-### 9. EFI磁盘
+### 9. EFI Disk
 
-在OVMF的BIOS下。EFI磁盘可以存储BIOS的一些设置信息。如果不设置，会告警。
+Under the OVMF BIOS, EFI disks can store some BIOS configuration information. If not configured, a warning will be issued. 
 
-| 类型       | 说明                                                                                        |
+| Type       | Description                                                                                       |
 | ------------ | --------------------------------------------------------------------------------------------- |
-| 预注册秘钥 | 启用之后，会开启安全启动，一些不支持安全启动的系统，将无法启动。如果是Arm虚拟机，请勿添加。 |
+| pre-enroll keys  |Once enabled, Secure Boot will be activated, and some systems that do not support Secure Boot will fail to start. If it is an ARM virtual machine, please do not add it.|
 
 
 ### 10. TPM
 
-| 类型 | 说明              |
+| Type | Description            |
 | ------ | ------------------- |
-| v2.0 | v2.0是新标准TPM。 |
+| v2.0 | v2.0 is the new standard for TPM (Trusted Platform Module). |
 
->注意！添加TPM后，虚拟机仅支持在块存储下支持快照。
+>Note! After adding TPM, the virtual machine only supports snapshots when using block storage.
 
 
 ### 11. Qemu Guest Agent
 
-| 类型                 | 值   | 说明                                               |
+| Type                 | Value   | Description                                             |
 | ---------------------- | ------ | ---------------------------------------------------- |
-| 使用Qemu Guest Agent | 启用 | 必须启用此选项，是Proxmox VE和虚拟机通信的必要程序 |
+| Qemu Guest Agent | enable | This option must be enabled; it is a necessary procedure for communication between Proxmox VE and the virtual machine. |
 
-### 12. 系统类型
+### 12. OS type
 
-PXVDI会读取ostype的值，并且进行针对性的优化
+PXVDI will read the value of ostype and perform targeted optimizations.
 
-| 类型                 |  说明                                               |
+| Type                 |  Description                                             |
 | ----------------------  | ---------------------------------------------------- |
-| ostype < win8.1 | pxvdi将使用rdp加密方式去连接， |
-| ostype >= win8.1 | pxvdi将使用nla(admode),tls加密方式去连接 |
+| ostype < win8.1 | PXVDI will use RDP encryption to establish the connection |
+| ostype >= win8.1 | PXVDI will use NLA (AD mode) and TLS encryption to establish the connection.|
 
 
 
-## PXVDI和虚拟的系统兼容性
+## PXVDI and Virtual Machine System Compatibility
 
-| 系统                | Windows10/windows11                   | Windows8.1  | Windows7 | WindowsXP |
+| OS                | Windows10/windows11                   | Windows8.1  | Windows7 | WindowsXP |
 | --------------------- | --------------------------------------- | ------------- | ---------- | ----------- |
-| Freerdp（ad模式）   | 支持                                  | 支持        | 支持     | 支持      |
-| Freerdp（非ad模式） | 需要关闭nla认证                       |
-| Spice               | 支持                                  | 支持 | 支持 | 支持 |
-| Horizon             | https://kb.vmware.com/s/article/78714 | 不支持 | 不支持 | 不支持 |
+| Freerdp（ad mode）   | Support                                  | Support        | Support     | Support      |
+| Freerdp（non-ad mode） | Need to disable NLA authentication.                       |
+| Spice               | Support                                  | Support | Support | Support |
+| Horizon             | https://kb.vmware.com/s/article/78714 | Not support | Not support | Not support |
 
-## 资料下载
+## Download materials
 
-1. Windows 的ISO，可在msdn.itellyou.cn下载
+1. Windows ISO can be downloaded from 
 
-2. Windows 的KVM驱动，可点此下载 https://download.lierfang.com/proxmox/drivers/
+https://msdn.itellyou.cn
 
-3. Spice guest tools https://download.lierfang.com/proxmox/drivers/spice-guest-tools-latest.exe
+2. Windows KVM drivers can be downloaded here.
+
+https://download.lierfang.com/proxmox/drivers/
+
+3. Spice guest tools
+
+https://download.lierfang.com/proxmox/drivers/spice-guest-tools-latest.exe

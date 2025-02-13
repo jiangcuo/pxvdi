@@ -1,50 +1,53 @@
 # 快速入门
 
-快速入门旨在指导用户快速体验PXVDI，详细的教程请参考后续文档
-
-## 1. 安装Proxmox VE
+The quick start guide aims to help users quickly experience PXVDI. For detailed tutorials, please refer to the subsequent documentation.
+## 1. Install Proxmox VE.
  
-版本 > 7.0
+Version > 7.0
 
-## 2. 创建虚拟机 
+## 2. Create a virtual machine. 
 
-### 2.1 创建
-点击网页上的`Create VM`按钮，OS处选择Windows的ISO，`Guest os`类型根据iso的类型来选择，如果是PVE 8版本，请勾选 `Add additional drive for VirtIO drivers`,同时添加Virtio驱动.
+### 2.1 Create
+Click the `Create VM` button on the webpage, select the Windows ISO for the OS, and choose the `Guest OS` type based on the ISO type. If you are using PVE 8, check `Add additional drive for VirtIO drivers` and add the VirtIO drivers.
 
 ![pve创建虚拟机](../img/createvm1.png "pvecreatevm")
 
 >Note: 
->virtio驱动可以从此处下载：https://download.lierfang.com/proxmox/drivers/
->Windows7或者2008/2008r2版本请使用`virtio-win-0.1.164-1`版本
+>VirtIO drivers can be downloaded from here: https://download.lierfang.com/proxmox/drivers/
+>For Windows 7 or 2008/2008 R2 versions, please use `virtio-win-0.1.164-1` version.
 
-如果不是PVE8，可以在虚拟机创建完成之后，添加一个CDROM设备，并且选择驱动
+If it’s not PVE8, you can add a CDROM device after the virtual machine is created and select the driver.
 
-### 2.2 System 配置
-点击Next,进入System配置页面
+### 2.2 System Configuration
+Click Next to enter the System configuration page.
 
 ![pve创建虚拟机](../img/createvm2.png "pvecreatevm")
 
-如果您的版本是Windows10以上，我们建议
-- `Machine` 选择q35
-- `Qemu Agent` 必须勾选，这是和虚拟机通信的必要组件
-- `Add EFI Disk` 勾选，这将启用UEFI启动
-- `Add TPM` 勾选，将会添加一个TPM设备，安装Win11必须勾选
-- `Pre-Enroll keys` 勾选之后，会支持安全启动，安装Win11必须勾选。
+If your version is Windows 10 or above, we recommend:
 
-如果您的版本是Win8或者Win7，那么，我们建议
-- `Qemu Agent` 必须勾选，这是和虚拟机通信的必要组件
-- `BIOS` seabios
-其他默认即可
+- Select `q35` for Machine.
+- Check `Qemu Agent`, which is a necessary component for communication with the virtual machine.
+- Check `Add EFI Disk` to enable UEFI boot.
+- Check `Add TPM` to add a TPM device, which is required for installing Windows 11.
+- Check `Pre-Enroll keys` to support secure boot, which is also required for installing Windows 11.
 
-如果您的版本是2003/xp，那么我们建议
-- `Qemu Agent` 必须勾选，这是和虚拟机通信的必要组件
-- `Machine` 默认
-- `BIOS` seabios
-- `Scsi Controller` LSI
-其他默认即可
+If your version is Windows 8 or Windows 7, we recommend:
 
-### 2.3 Disks 配置
-点击Next,进入Disks配置页面
+- Check `Qemu Agent`, which is a necessary component for communication with the - - virtual machine.
+- Set `BIOS` to `seabios`.
+- Leave other settings as default.
+
+
+If your version is Windows 2003 or XP, we recommend:
+
+- Check `Qemu Agent`, which is a necessary component for communication with the virtual machine.
+- Leave `Machine` as default.
+- Set `BIOS` to `seabios`.
+- Set `Scsi Controller` to `LSI`.
+- Leave other settings as default.
+
+### 2.3 Disks Configuration
+点击Next,进入Disks Configuration页面
 
 ![pve创建虚拟机](../img/createvm3.png "pvecreatevm")
 
@@ -59,152 +62,141 @@
 如果您的版本是win11，建议给VM分配60G以上的磁盘
 
 
-### 2.4 CPU 配置
-点击Next,进入CPU配置页面
+### 2.4 CPU Configuration
 
 ![pve创建虚拟机](../img/createvm4.png "pvecreatevm")
 
-我们建议:
-- `Sockets` 固定为1
-- `Cores` 虚拟机的cpu数量，合理配置，建议为4
-- `Type` 选择host
+We recommend:
 
-### 2.5 Memory 配置
+- Set `Sockets` to `1`.
+- Set `Cores` to the number of CPUs for the virtual machine; a reasonable configuration is suggested to be `4`.
+- Select `Type` as `host`.
 
-点击Next,进入Memory配置页面，请合理配置。
+### 2.5 Memory Configuration
+
+Click Next to enter the Memory Configuration page; please configure it reasonably.
 
 
-### 2.6 Network 配置
+### 2.6 Network Configuration
 
-点击Next,进入Network配置页面。使用默认配置即可。
+Click Next to enter the Network Configuration page. You can use the default configuration.
 
-如果您的版本是2003/xp，那么我们建议
-- `Model` RTL 8196
 
 ### 2.7 Confirm
 
-点击Next,进入Confirm页面。本页面会展示虚拟机的配置，如果不对，请回退重新设置。
+Click Next to enter the Confirm page. This page will display the configuration of the virtual machine. If anything is incorrect, please go back and reconfigure.
 
 ![pve创建虚拟机](../img/createvm5.png "pvecreatevm")
 
-## 3. 安装虚拟机
+## 3. Start installing the virtual machine
 
-开启虚拟机之后，如果出现下面的图像，务必使用鼠标点击窗口，再按任意键，出发Windows安装进程。
+After starting the virtual machine, if the following image appears, be sure to click inside the window with your mouse and then press any key to trigger the Windows installation process.
 
 ![pve创建虚拟机](../img/startvm1.png "pvecreatevm")
 
 
-进入安装流程之后，会提示未找不到磁盘，此时我们点击`浏览按钮`
+Once you enter the installation process, if you see a message indicating that no disks were found, click the `Browse` button at this point.
 
 ![pve创建虚拟机](../img/startvm2.png "pvecreatevm")
 
-在弹出的页面中，选择驱动光盘。
+On the pop-up page, select the driver disk.
 
 ![pve创建虚拟机](../img/startvm3.png "pvecreatevm")
 
-展开驱动光盘，选择`amd64` -> `win11` 或者选择对应的系统版本
+Expand the driver disk, then select `amd64` -> `win11` or choose the corresponding version of the operating system.
 
 ![pve创建虚拟机](../img/startvm4.png "pvecreatevm")
 
-点击驱动，点击下一步或者安装，进入正常安装环节。
-## 4. 配置虚拟机
+Click on the driver, then click Next or Install to proceed to the normal installation phase.
 
-### 4.1 安装驱动
+## 4. Configuration VM
 
-进入桌面之后，在文件管理器中，找到驱动光盘，并且运行`virtio-win-guest-tools`
+### 4.1 Install the driver.
 
-![pve创建虚拟机](../img/startvm5.png "pvecreatevm")
+After entering the desktop, open the file manager, find the driver disk (usually a virtual CD/DVD), and then locate and run `virtio-win-guest-tools`. This will install the VirtIO drivers, optimizing the performance and compatibility of the virtual machine. Once the installation is complete, restart the virtual machine to ensure all drivers take effect.
 
-随后直接下一步即可
-
-![pve创建虚拟机](../img/startvm6.png "pvecreatevm")
-
-当驱动安装好之后，可以在设备管理器中看到没有未知驱动
-
-
-![pve创建虚拟机](../img/startvm7.png "pvecreatevm")
-
-在PVE的web上可以看到ip信息
+You can see the IP information on the PVE web interface.
 
 ![pve创建虚拟机](../img/startvm8.png "pvecreatevm")
 
-如果看不到ip信息，请在关闭虚拟机，在虚拟机的`Options`中，启用`QEMU Guest Agent`
+If you cannot see the IP information, please shut down the virtual machine, and in the virtual machine's `Options`, enable `QEMU Guest Agent`.
 
-### 4.2 开启RDP配置
+### 4.2 To enable RDP 
 
-请在开启RDP的页面，取消勾选`仅允许运行使用网络级别身份验证的远程桌面的计算机连接`
+Please uncheck `Allow connections only from computers running Remote Desktop with Network Level Authentication` on the RDP settings page.
 
 ![pve创建虚拟机](../img/startvm9.png "pvecreatevm")
 
-打开防火墙设置，在入站规则中，允许rdp连接,
 
+Open the firewall settings and allow RDP connections in the inbound rules.
 
 ![pve创建虚拟机](../img/startvm10.png "pvecreatevm")
 
 
 
-## 5. 创建PXVDI所需要的角色
+## 5. Create the roles required for PXVDI.
 
-切换到网页shell，输入下面命令快速创建具有查看虚拟机、快照虚拟机、虚拟机电源管理权限的角色。
+Switch to the web shell and enter the following command to quickly create a role with permissions to view virtual machines, snapshot virtual machines, and manage virtual machine power.
+
 ```bash
 pveum role add PxvdiUsers --privs "VM.Audit VM.Snapshot.Rollback VM.Console VM.PowerMgmt VM.Monitor"
 ```
-## 6. 创建PXVDI用户
+## 6. Create a PXVDI user.
 
-我们点击权限->用户->添加就能进入添加页面。其中领域选择Proxmox VE authentication server
+We click on `Permissions` -> `Users` -> `Add` to access the add user page. In the Domain field, select `Proxmox VE authentication server`.
 
 ![pve网页添加用户](../img/pxvdiadduser.png "pve-adduser")
 
-添加好了，可以在网页上看到，此时我们就可以按照第三章给他分配资源权限。还可以在这个页面修改用户信息或者修改密码。
+Once added, you can see it on the webpage. At this point, we can assign resource permissions to it according to Chapter 3. You can also modify user information or change the password on this page.
 
 ![pve网页查看用户](../img/pxvdishowuser.png "pve-showuser")
 
 
-如果用户想登录PVE，在登录的时候领域选择Proxmox VE authentication server
+If the user wants to log in to PVE, they should select `Proxmox VE authentication server` in the domain field during the login process.
 
 ![pve网页登录用户](../img/pvelogin.png "pve-showuser")
 
 
-如果想登录PXVDI，请使用pxvdinoadmodusr@pve或者直接输入pxvdinoadmodusr进行登录。
+To log in to PXVDI, please use `pxvdinoadmodusr@pve` to log in.
 
-## 7. 为用户分配虚拟机
+## 7. Assign virtual machines to the user.
 
-选中虚拟机，点击`Permissions`,选择`Add`-`User Permission`
+Select the virtual machine, click on `Permissions`, and choose `Add` - `User Permission`.
 
 ![pve网页分配用户](../img/adduser1.png "pve-showuser")
 
-选择刚才添加的用户，Role选择`PxvdiUsers`
+Select the user you just added, and for the Role, choose `PxvdiUsers`.
 
 ![pve网页分配用户](../img/adduser2.png "pve-showuser")
 
-## 8. 测试PXVDI ISO
+## 8. Test PXVDI.
 
-点击此链接 下载最新的iso 
+Click this link to download the latest ISO.
 
 https://download.lierfang.com/pxvdi/Client/iso/pxvdi_lastest_live_amd64.iso
 
-请上传到PVE中，使用PVE启动该ISO，即可快速启动
+Please upload it to PVE, and then use PVE to boot from the ISO to quickly start.
 
-### 8.1 配置服务器地址
+### 8.1 Configuration Server Address
 
-在设置中，输入服务器地址。
+In the settings, enter the server address.If you are using a Linux terminal, you need to set the mode to "Direct Connection" in the settings.
 
 ![pxvdi使用](../img/startpxvdi1.png "pxvdistart")
 
-随后进行保存，您可以点击测试，进行测试该地址是否可用。
+Then save the settings. You can click on "Test" to check if the address is available.
 
 ![pxvdi使用](../img/startpxvdi2.png "pxvdistart")
 
-### 8.2 登录pve
+### 8.2 Log in to PXVDI.
 
-在用户名处输入pxvdinoadmodusr@pve
+Enter `pxvdinoadmodusr@pve` in the username field.
 
 ![pxvdi使用](../img/startpxvdi3.png "pxvdistart")
 
-登录成功，会出现虚拟机列表，此时点击虚拟机即可连接到虚拟机
+After successfully logging in, you will see a list of virtual machines. Click on the virtual machine you want to connect to, and you can start using it.
 
 ![pxvdi使用](../img/startpxvdi4.png "pxvdistart")
 
-如果配置正确，将连接到桌面
+If the configuration is correct, you will be connected to the desktop.
 
 ![pxvdi使用](../img/startpxvdi5.png "pxvdistart")

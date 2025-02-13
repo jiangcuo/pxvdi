@@ -1,33 +1,29 @@
 ---
-description: Proxmox VE 桌面虚拟化解决方案
+description: Proxmox VE desktop virtualization solution
 ---
 
 # PXVDI
 
-PXVDI是基于Proxmox VE为底层的桌面虚拟化产品，由梨儿方开发维护。
+PXVDI is a desktop virtualization product based on Proxmox VE, developed and maintained by Lierfang. We utilize the Proxmox VE API to retrieve virtual machine IP addresses and invoke external programs to access the virtual machines. It supports three protocols: RDP, SPICE, and Blast.
 
-我们利用Proxmox VE API获取虚拟机的ip，调用外部的程序去访问到虚拟机。
+### PXVDI two working modes
 
-支持 RDP/spice/horizon 3种协议。
+#### Direct connection mode
 
-### PXVDI 双模式
+The client communicates directly with the Proxmox VE API, supporting additional features such as snapshots, automatic startup, and restoration.
 
-#### 直连模式
+#### Central control mode
 
-客户端直接和Proxmox VE api互通，支持快照、自动开机、还原等额外功能功能
+We have developed a backend management system for managing Proxmox VE clusters, which also supports external user authentication, automatic user account registration, batch management, and other functionalities.
 
-#### 总控模式
+The client requests the server's API, with user permissions, virtual machine resources, and connection protocols controlled by the server.
 
-我们开发了一套后台管理系统，用于管理Proxmox VE集群，同时支持外部的用户认证，用户账号自动注册，批量管理等多功能。
-
-客户端请求服务端的API，用户权限、虚拟机资源、连接协议由服务端控制
-
-### 软件架构 
+###  Architecture
 
 
-桌面客户端基于tauri框架。
+The desktop client is based on the Tauri framework.
 
-PXVDI-Desktop 组件
+PXVDI-Desktop Components
 
 * freerdp
 * remote-viewer

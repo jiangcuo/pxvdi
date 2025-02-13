@@ -1,14 +1,14 @@
-# 连接协议
+# Connection methods
 
-| 模式                   | freerdp（开源）  | SPICE（开源） | VMware Horizon（闭源）           |
+| methods                   | freerdp（opensource）  | SPICE（opensource） | VMware Horizon（Closed Source）           |
 | ------------------------ | ------------------ | --------------- | ---------------------------------- |
-| 协议                   | rdp              | SPICE         | blast/Pcoip                      |
-| 带宽消耗               | 中               | 高            | 低                               |
-| USB重定向              | rdp高级usb重定向 | usb完全重定向 | usb完全重定向                    |
-| 解码                   | h.264 444/420    | h.264 420     | h.264 | hevc| AV1                |
-| ad模式 统一认证        | 支持             | 不支持        | 支持                             |
-| 打印机支持             | rdp高级打印      | 走USB重定向   | VMware 高级打印或者USB重定向     |
-| 对瘦终端的单核性能要求 | 高               | 低            | 使用pcoip协议低，使用blast协议高 |
-| vGPU支持               | 中等性能         | 一般性能      | 高性能                           |
-| Win7兼容性             | 中等兼容         | 完美兼        | 不兼容                           |
-| Windows10 兼容性       | 完美兼容         | 完美兼容      | 需要 Enterprise / Pro            |
+| Protocol                   | RDP              | SPICE         | blast/Pcoip                      |
+| Bandwidth Consumption               | Medium               | High            | low                               |
+| USB Redirection              | RDP Advanced USB Redirection | USB Full Redirection | USB Full Redirection                    |
+| Decoding                   | h.264 444/420    | h.264 420     | h.264 | hevc| AV1                |
+| Ad  Environment       | Support             | Not Support        | Support                             |
+| Printer Support             | RDP Advanced Printing      | USB Full Redirection   | VMware Advanced Printing or USB Redirection    |
+| Single-Core Performance Requirements for Thin Clients | High               | low            | High |
+| vGPU Support               | Medium Performance         | General Performance      | High Performance                           |
+| Windows 7 Compatibility             | Medium Compatibility         | Perfect Compatibility        | Incompatible                           |
+| Windows 10 Compatibility      | Perfect Compatibility         | Perfect Compatibility      | Need Enterprise / Pro  Version         |

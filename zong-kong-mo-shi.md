@@ -1,2 +1,2 @@
-# 总控模式
+# Central control mode
 

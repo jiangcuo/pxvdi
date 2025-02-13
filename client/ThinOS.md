@@ -1,18 +1,19 @@
-# 瘦客户端系统使用说明
+# PXVDI Thin Client System User Guide
 
-## 1. PXVDI 瘦客户机系统和硬件兼容性
+## 1. PXVDI Thin Client System and Hardware Compatibility
 
-### 瘦客户机系统和硬件兼容性
+### Thin Client System and Hardware Compatibility
 
-| 显卡兼容性 | 核显 | A卡 | N卡 | N卡+核显     |
+| Graphics Card Compatibility | Integrated Graphics | AMDGPU	 | Nvidia GPU	 | NVIDIA + Integrated Graphics     |
 | ------------ | ------ | ----- | ----- | -------------- |
-| intel处理器      | √   | √  | x   | 仅核显输出√ |
-| amd处理器      | √   | √  | x   | 仅核显输出√ |
+| Intel Processor	      | √   | √  | x   | Integrated output only √ |
+| AMD Processor	      | √   | √  | x   | Integrated output only √ |
 
+PXVDI Thin Client System does not support NVIDIA graphics cards. If you are using dual graphics cards, please use the integrated graphics output.
 
-### PXVDI 瘦客户机系统不支持N卡，如果是双显卡，请使用核显输出。
+### PXVDI Thin Client System and WIFI Compatibility:
 
-| WIFI硬件 | WIFI兼容性 |
+| Hardware | Compatibility |
 | ---------- | ------ |
 | intel    | √         |
 | broadcom | √         |
@@ -20,120 +21,135 @@
 | mediatek | √         |
 | realtek  | √         |
 
-### PXVDI 支持以下启动环境
+PXVDI supports the following boot environments
 
-* 64位efi
-* bios引导
-* 不支持32为efi环境
+- 64-bit EFI
+- BIOS Boot
+- Does not support 32-bit EFI environment
 
-### PXVDI要求系统盘大于等于8G
+### PXVDI requires the system disk to be at least 8GB
 
-## 2. PXVDI 瘦客户机系统架构说明
+## 2. PXVDI Thin Client System Architecture Description
 
-PXVDI瘦客户机系统基于debian12系统，内置SPICE/RPD/Horizon组件
-瘦客户机系统具有2个版本
-- 版本小于等于2.2.6，老版本
-- 版本大于2.2.6，新版本
+The PXVDI Thin Client System is based on Debian 12 and includes SPICE/RDP/Horizon components. The thin client system has two versions:
 
-本文将介绍新版本
+- Version ≤ 2.2.6 (Old Version)
+- Version > 2.2.6 (New Version)
+
+This document will cover the new version.
 
 ![PXVDI client](../img/thinos1.png)
 
 
-PXVDI使用双系统引导，用户在升级系统时，可以选择升级主备系统。同时具有还原模式，能够对系统数据进行清理。
+PXVDI uses dual system booting, allowing users to choose to upgrade either the primary or backup system during an upgrade. It also features a restore mode that can clean system data.
 
-如果要切换双系统，在出现grub的页面，快速点按方向键，中断自动启动，选择 Pxvdi 还原模式
+To switch between dual systems, quickly press the arrow keys at the GRUB page to interrupt the automatic boot and select the PXVDI restore mode.
 
-## 3. PXVDI 瘦客户端系统安装
-PXVDI瘦客户端ISO 重启将会还原，不会保存任何数据，需要安装到硬盘内
-使用rufus将iso写入到U盘
 
-直接使用U盘即可进入瘦客户机系统，瘦客户系统是运行在内存中的RAMOS，重启之后保存的数据将会消失，需要安装到硬盘。
+## 3. PXVDI Thin Client System Installation
+The PXVDI thin client ISO will restore upon reboot and will not save any data. It needs to be installed on the hard drive. Use Rufus to write the ISO to a USB drive.
 
-系统默认会启动PXVDI程序，请使用ctrl+F4组合键，连续3次即可退出PXVDI程序守护程序。
+You can directly boot from the USB drive to enter the thin client system. The thin client system runs in memory (RAMOS), so any saved data will be lost upon reboot. It must be installed on the hard drive.
 
-右击打开终端，
+The system will automatically start the PXVDI program. To exit the PXVDI program daemon, press `Ctrl + F4` `three` times in quick succession.
 
-运行lsblk查看需要安装的硬盘，如/dev/sda，可以根据大小来判断。
-注意，安装磁盘最小为8G。
+`Right-click` to open the terminal.
+
+Run `lsblk` to view the hard drive you need to install on, such as `/dev/sda`, and determine it based on size. Note that the minimum installation disk size is 8GB.
+
 ![PXVDI client](../img/thinos2.png)
 
 
-执行命令`pxvdi-install /dev/sda` 进行安装。如果是新版本系统，版本号高于2.2.6，要安装旧版的系统，请使用`pxvdi-install-old /dev/sda` 进行安装。
+To install the PXVDI Thin Client System, execute the command:
+
+```
+pxvdi-install /dev/sda
+```
+If you are using a newer version of the system (version number higher than 2.2.6) and need to install an older version, please use the following command:
+
+```
+pxvdi-install-old /dev/sda
+```
 
 ![PXVDI client](../img/thinos3.png)
 
-出现success就代表安装成功
+If you see the message "success," it indicates that the installation was successful.
 
-## 4.PXVDI 基本操作
+## 4.PXVDI Basic Operations
 
-### 4.1 退出程序
+### 4.1 Exiting the Program
 
-PXVDI具有守护进程，连续按下操作键`ctrl + f4` 3次，即可退出守护进程，进入到桌面
-
+PXVDI has a daemon process. To exit the daemon and return to the desktop, press the operation keys `Ctrl + F4` `three` times in succession.
 ### 4.2 网络连接
 
-有线网卡
-PXVDI 瘦客户端系统集成大部分主流的Linux驱动，并且开机dhcp获取ip，
+Wired Network Card
 
+The PXVDI Thin Client System integrates most mainstream Linux drivers and automatically obtains an IP address via DHCP upon startup.
 
-无线WIFI
+Wireless WIFI
 
-PXVDI 瘦客机系统截止目前没有可视化WIFI连接方法，未来会有，届时您将不会看到这句话。
- 右击桌面空白处，点击设置网络
+As of now, the PXVDI Thin Client System does not have a visual method for connecting to WIFI. This feature will be available in the future, and you will no longer see this statement. You can right-click on an empty area of the desktop and click on "Network Settings" to configure your network.
+
 ![PXVDI client](../img/thinos4.png)
 
-点击左下角＋号，选择WIFI，点击创建。
+Click the plus sign (+) in the lower-left corner, select WIFI, and then click "Create."
+
 ![PXVDI client](../img/thinos5.png)
 
-在SSID处输入WIFI名，在设备处选择WIFI硬件。
+In the SSID field, enter the WIFI name, and in the device section, select the WIFI hardware.
+
 ![PXVDI client](../img/thinos6.png)
-随后点击WI-FI安全性，一般的WIFI，选择下图的认证即可，随后输入密码，并保存。
+
+Then click on "WIFI Security." For a standard WIFI connection, select the authentication method shown in the image below, enter the password, and click "Save."
+
 ![PXVDI client](../img/thinos7.png)
-不出意外，WIFI将会自动连接。
 
-### 4.3 系统声音设置
+If all goes well, the WIFI will connect automatically.
 
-必须要对系统层面的声音进行设置，才能够保证远程桌面能够有声音。
+### 4.3 System Sound Settings
 
-在桌面空白处，右击设置声音。
+It is necessary to configure the system-level sound settings to ensure that the remote desktop has audio.
+
+Right-click on an empty area of the desktop and select "Sound Settings."
 
 ![PXVDI client](../img/thinos8.png)
 
-声音设置页如下
+The sound settings page is as follows:
 ![PXVDI client](../img/thinos9.png)
 
-带锁的图标是锁定的意思，绿色图标是设为默认的意思，灰色带x的图标是音频静音图标。
+The locked icon indicates that the setting is locked, the green icon means it is set as default, and the gray icon with an 'x' signifies that the audio is muted.
 
-如果有多个声卡，请前往配置中切换即可。
+If there are multiple sound cards, please go to the configuration to switch between them.
 
-### 4.4 壁纸设置
+### 4.4  Wallpaper Settings
 
-请准备一个壁纸文件，jpg格式，替换掉/usr/share/bizhi.jpg文件，重新设置一下分辨率即可生效
+Please prepare a wallpaper file in JPG format and replace the existing file at `/usr/share/bizhi.jpg`. Adjust the resolution to make the changes effective.
 
-### 4.5  系统分辨率设置
+### 4.5   System Resolution Settings
 
-如果默认的分辨率不对，可以手动设置，默认提供了3个分辨率档次。
+If the default resolution is incorrect, you can manually set it. Three resolution options are provided by default:
+
 - 1920x1080@60
 - 2560x1440@60
 - 3840x2160@60
 
-在桌面空白处右击，点击分辨率设置即可设置分辨率。
+Right-click on an empty area of the desktop and select "Resolution Settings" to adjust the resolution.
+
 ![PXVDI client](../img/thinos10.png)
 
 
-如果是其他分辨率，请使用命令更改。
+For other resolutions, please use the following command to change it:
+
 ```
 echo "1366x768" >/root/.screensetting
 ```
-默认使用60刷新率，重新即可生效。
-暂时不支持缩放设置，如果需要缩放设置，请手动使用xrandr配置
+The default refresh rate is set to 60 Hz, and the changes will take effect after restarting. Scaling settings are currently not supported; if scaling is needed, please configure it manually using `xrandr`.
 
-### 4.6 语言设置
+### 4.6 Language Settings
 
-在桌面空白处右击，点击lang setting就可以修改语言
+Right-click on an empty area of the desktop and select "Lang Setting" to change the language.
 
 ![PXVDI client](../img/thinos11.png)
 
-修改语言之后，不会重新生效，点击 `其他操作`-`重启桌面生效`
+After changing the language, it will not take effect immediately. Click on `Other Operations` - `Restart Desktop`.
 

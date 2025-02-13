@@ -1,12 +1,12 @@
-# PXVDI 客户端使用说明
+# PXVDI Client User Guide
 
 
-## 1. 安装
+## 1. Installation
 
-### 1.1 主程序安装
+### 1.1 Main Program Installation
 #### Linux OS
 
-根据客户端的cpu架构，下载对应的版本。
+Download the corresponding version based on the client's CPU architecture.
 
 
 ```
@@ -15,7 +15,7 @@ OR
 curl -L -O https://download.lierfang.com/pxvdi/Client/linux/pxvdi_latest_amd64.AppImage
 ```
 
-授予权限并执行
+Grant permissions and execute.
 
 ```
 chmod +x pxvdi_latest_amd64.AppImage
@@ -24,35 +24,35 @@ chmod +x pxvdi_latest_amd64.AppImage
 
 #### Debian OS
 
-我们基于debian构建了安装包，可以直接使用debian进行安装，并且会自动下载组件
+We have built the installation package based on Debian, which can be directly installed using Debian and will automatically download the components.
 ```
-wget https://download.lierfang.com/pxvdi/Client/linux/pxvdi_3.0.1_debian12_amd64.deb
+wget https://download.lierfang.com/pxvdi/Client/linux/pxvdi_latest_amd64.deb
 apt update
-apt install -f ./pxvdi_3.0.1_debian12_amd64.deb
+apt install -f ./pxvdi_latest_amd64.deb
 ```
 
 #### MacOS
 
-下载客户端，直接打开dmg文件
+Download the client, open the DMG file, and drag the application into the Applications folder.
 
 https://download.lierfang.com/pxvdi/Client/macos/pxvdi_latest_arm64.dmg
 
-将程序拖动到应用程序中
+
 
 #### Windows
 
-请下载windows客户端，直接解压，运行pxvdi。如果不能运行，请下载webview2
+Please download the Windows client, extract it, and run pxvdi. If it doesn't run, please download WebView2.
 
 https://developer.microsoft.com/zh-cn/microsoft-edge/webview2
 
 ### 1.2 组件安装
 
-debian系
+debian
 ```
 apt update && apt -y install freerdp2-x11 virt-viewer
 ```
 
-rhel系
+rhel
 ```
 dnf makecache --refresh && dnf -y install freerdp virt-viewer
 ```
@@ -66,7 +66,7 @@ macos
 ```
 brew install virt-viewer
 ```
-### 1.3 Linux上与glibc兼容性
+### 1.3 Compatibility with glibc on Linux.
 - GLIBC_2.3
 - GLIBC_2.35
 - GLIBC_2.27
@@ -82,35 +82,35 @@ brew install virt-viewer
 - GLIBC_2.33
 
 
-## 2. 使用说明
+## 2. Usage Instructions
 
-### 2.1 初次使用
+### 2.1 First Use
 
-点击`设置`，选择对应的语言，输入服务器地址,服务器地址是带协议和端口号地址，如`https://gw.pxvdi.lierfang.com:16003`。点击`保存`,随后点击`测试`,如果测试通过代表服务端可用。
+Click on `Settings`, select the appropriate `language`, and enter the server address. The server address should include the protocol and port number, such as `https://gw.pxvdi.lierfang.com:16003`. Click `Save`, then click `Test`. If the test is successful, it means the server is available.
 
 ![PXVDI client](../img/client5.png)
 
-回到首页点击登录：
+Return to the homepage and click on Login:
 
 ![PXVDI client](../img/client6.png)
 
 ![PXVDI client](../img/client7.png)
 
-点击虚拟机即可连接。
+Click on the virtual machine to connect.
 
-### 2.2 设置说明
+### 2.2 Settings Instructions
 
 #### 登录页
 
-启用`autologin`之后，程序会自动登录
+Enabling `autologin` will allow the program to log in automatically.
 
-点击`SignUp`,可以向服务端进行注册
+Click `SignUp` to register with the server.
 
-点击`Setting`,可以进入设置页面
+Click `Setting` to access the settings page.
 
-点击`Shutdown`，可进行关机（仅linux生效）
+Click `Shutdown` to power off (effective only on Linux).
 
-点击`Reboot`,可进行重启（仅linux生效）
+Click `Reboot` to restart (effective only on Linux).
 
 #### 注册页
 
@@ -136,90 +136,122 @@ brew install virt-viewer
 
 `Advanced settings`,高级设置
 
-#### 高级设置
+#### Advanced Settings
 
-- 全屏开关
-  - 控制软件是否全屏，以及以后的连接是否全屏。所有的协议均能控制
+- Fullscreen Toggle
+
+  - Controls whether the software runs in fullscreen mode and whether future connections will be fullscreen. All protocols can be controlled.
 - Debug
-  - 启用DEBUG模式
-- 自动登录
-  - 自动登录
-- 回滚
-  - 运行用户使用快照回滚桌面
-- 独立连接
-  - 开启一个选项，可以使用本程序，连接到指定的rdp或者vnc服务器
-- 连接方式
-  - 可选SPICE/Freerdp/Horizon协议。
-- freerdp设置
-  - freerdp版本：配置freerdp的版本，3是最新版本，修复了2存在的bug，2是稳定版本。
-  - 编解码：配置freerdp的解码方式，推荐使用420，如果不支持硬件解码，请使用软件解码
-  - 色深：配置freerdp的色彩深度，值越大，色彩越好。
-  - 缩放：配置freerdp的缩放比率，适合在高分辨率屏中使用
-- VMware设置
-  - 连接协议：Blast和PCOIP，PCOIP适合性能差的瘦客户机。
-  - 状态栏开关：是否显示连接的状态栏，开启后，可以在云桌面中显示高级选项，如USB重定向，配置连接解码方式等
-- ipv6设置：是否开启IPV6
-- 网关设置：
-  - AD模式：将用户的登录信息作为云桌面的登录账户，用户无需输入2次密码，如果配置自动登录，用户可以开机登录到桌面。需要云桌面和服务器端加域。
-  - 使用网关：配置使用rdp的网关。在ipv6启用的情况下，会忽略网关。
-  - 使用用户账号密码：将用户的账户密码作为rdp网关凭据
-  - 网关账号：rdp网关账号
-  - 网关密码：rdp网关密码。
-该功能可以让外部客户端访问内网桌面。
-- 资源设置：
-  - 多监视器：允许使用多个屏幕，勾选此项之后，无论是否全屏，云桌面都会全屏。
-  - 驱动器重定向：允许重定向瘦客户端的磁盘，如移动磁盘、内置磁盘等等。
-  - 声音重定向：允许云桌面播放声音，并从瘦客户端发出来。
-  - 打印重定向：允许云桌面使用本地打印机。
-  - usb重定向：允许云桌面读取本地的USB设备。
-  - 麦克风重定向：允许云桌面使用麦克风。
-  - 剪切板重定向：运行云桌面进行剪切板同步。
-  - 串口重定向：将串口重定向给rdp
+  - Enable DEBUG mode.
+- Auto Login
+  - Enable automatic login.
+- Rollback
+  - Run a snapshot rollback to restore the desktop to a previous state.
+- Other Connection
+  - Enable an option to use this program to connect to specified RDP or VNC servers.
+- Connection Method
+  - Choose between SPICE, FreeRDP, or Horizon protocols.
+- FreeRDP Settings
+  - FreeRDP Version: Configure the version of FreeRDP; version 3 is the latest and fixes bugs present in version 2, which is a stable version.
+  - Codec: Configure the decoding method for FreeRDP; it is recommended to use 420. If hardware decoding is not supported, please use software decoding.
+  - bpp: Configure the color depth for FreeRDP; a higher value results in better color quality.
+  - Scaling: Configure the scaling ratio for FreeRDP, suitable for use on high-resolution screens.
+- VMware Settings
+  - Protocol: Choose between Blast and PCOIP; PCOIP is suitable for low-performance thin clients.
+  - Menu Bar: Decide whether to display the connection status bar. When enabled, advanced options such as USB redirection and connection decoding configuration can be shown in the cloud desktop.
+- IPv6 Settings: Enable or disable IPv6.
 
+- Gateway Settings:
+  - AD Mode: Use the user's login information as the login account for the cloud desktop, allowing users to log in without entering their password twice. If configured for auto login, users can boot directly into the desktop. This requires the cloud desktop and server to be domain-joined.
+  - Enable Gateway: Configure the use of an RDP gateway. In cases where IPv6 is enabled, the gateway will be ignored.
+  - Ad Gateway: Use the user's account password as RDP gateway credentials.
+  - Gateway UserName: RDP gateway account.
+  - Gateway Password: RDP gateway password. This feature allows external clients to access internal desktops.
 
-#### 虚拟机列表页
+- Resource Settings:
+
+  - Multi-Monitor: Allow the use of multiple screens. Once enabled, the cloud desktop will be fullscreen regardless of whether fullscreen mode is selected.
+  - Drive Redirection: Allow redirection of the thin client's disks, such as removable drives and built-in disks.
+  - Audio Redirection: Allow the cloud desktop to play sound and output it through the thin client.
+  - Print Redirection: Allow the cloud desktop to use local printers.
+  - USB Redirection: Allow the cloud desktop to access local USB devices.
+  - Microphone Redirection: Allow the cloud desktop to use the microphone.
+  - Clipboard Redirection: Enable clipboard synchronization while running the cloud desktop.
+  - Serial Port Redirection: Redirect the serial port to RDP.
+
+#### Virtual Machine List Page
 
 ![PXVDI client](../img/client10.png)
+- Star Icon: Set the virtual machine to automatically start after login.
+- Refresh List: Update the virtual machine list to reflect the latest status and changes.
+- Profile Icon: Log out of the current session.
 
-- 连接类型：
+- Connect Method：
     - RDP
     - Horizon
     - SPICE
 
-- 电源管理：
-    - 关机
-    - 强行关机
-    - 重启
-    - 强制重启
+- Power Management
 
-- 快照管理
+  - Shutdown: Gracefully shut down the virtual machine.
+
+  - Force Shutdown: Immediately power off the virtual machine without a graceful shutdown.
+
+  - Restart: Restart the virtual machine normally.
+
+  - Force Restart: Immediately restart the virtual machine without a graceful shutdown.
+
+- Snapshot Management
+
 
 ![PXVDI client](../img/client11.png)
 
-选中快照即可回滚
+  - roollback Rollback to Snapshot
 
 
-- 五角星图标 设置虚拟机登录之后就启动
-
-- 刷新列表 更新虚拟列表
-
-- 头像 注销登录
-
-
-### 2.3 特殊设置
+### 2.3 Special Settings
 
 ####  UserMode
-在Usermode下，pxvdi调用的freerdp路径位于~/.xfreerdp，该方案无需用户拥有root权限就可以连接到桌面。
+In User Mode, the path for FreeRDP called by PXVDI is located at ~/.xfreerdp. This setup allows users to connect to the desktop without requiring root privileges.
 
-如以下场景
+Example Scenario
 
-普通用户下载pxvdi.appimage，下载freerdp.appimage。将freerdp.appimage改名到~/.xfreerdp双击pxvdi就可以连接到桌面，在此过程中完全不需要root权限。
+A regular user downloads pxvdi.appimage and freerdp.appimage.
+The user renames freerdp.appimage to ~/.xfreerdp.
 
-#### 独立连接
+By double-clicking pxvdi, the user can connect to the desktop seamlessly, without needing any root access during the process.
 
-开启独立连接之后，会在首页出现独立连接按钮。独立连接可以手动连接到桌面
+#### Other Connect
+
+After enabling other connections, an "Other Connections" button will appear on the home page. This feature allows users to manually connect to additional desktops.
+
 ![PXVDI client](../img/client12.png)
 
-#### 设置隐藏
+#### Hide Settings
 
-使用终端，编辑~/.pxvdiconfig.json， 将setting这个值改成false，重启软件即可隐藏设置功能。
+To hide the settings feature, you can edit the configuration file using the terminal. Follow these steps:
+
+- Open Terminal: Launch your terminal application.
+
+- Edit Configuration File:
+
+  Run the following command to open the configuration file in a text editor (e.g., nano):
+  ```
+  nano ~/.pxvdiconfig.json
+  ```
+- Modify the Setting:
+
+  Locate the line that contains "setting": true and change it to:
+
+  ```
+  "setting": false
+  ````
+- Save Changes:
+
+  If using nano, press `CTRL + O` to save and `CTRL + X` to exit.
+
+- Restart the Application:
+  
+  Close and reopen the PXVDI application for the changes to take effect.
+
+After completing these steps, the settings feature will be hidden from the user interface.

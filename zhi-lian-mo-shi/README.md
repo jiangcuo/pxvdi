@@ -1,23 +1,24 @@
-# 直连模式
+# Direct connection mode
 
-## PXVDI直连模式工作流程
-PXVDI直连模式本地调用Proxmox VE API接口，获取虚拟机ip，随后通过RDP/SPICE/Horizon进行连接，中间没有任何broker的参与，因此叫做直连模式。
+## The workflow of the PXVDI direct connection mode 
+In PXVDI direct connection mode, the client locally calls the Proxmox VE API to obtain the virtual machine's IP address. It then connects using RDP/SPICE/Horizon without any broker involvement, hence the term 'direct connection mode.'
 
-下图是整个PXVDI客户端的工作流程图。
+The diagram below illustrates the entire workflow of the PXVDI client
 
-![PXVDI客户端工作流程](../img/pxvdi-progress.png "pxvdi-work-progress")
+![The workflow of the PXVDI direct connection mode ](../img/pxvdi-progress.png "pxvdi-work-progress")
 
-上面的流程图，清晰的展示了整个主要流程，其中有一些必要的环节，将在下文中介绍。
+The flowchart above clearly illustrates the main process, highlighting several essential steps that will be explained in the following text.
 
-## PXVDI直连模式和Proxmox VE的交互方法
-直连模式和Proxmox VE的主要交互是权限的交互。
 
-![PXVDI客户端权限交流](../img/directmode-perm.png "pxvdi-directmode")
+## Interaction methods between PXVDI direct connection mode and Proxmox VE.
+The main interaction between direct connection mode and Proxmox VE is the exchange of permissions.
 
-如果权限不正确，则无法进行登录，无法获取虚拟机列表，也无法和虚拟机通信。
+![The workflow of the PXVDI direct connection mode ](../img/directmode-perm.png "pxvdi-directmode")
 
-因此PXVDI直连模式和Proxmox VE的交互核心就是权限交互。
+If the permissions are not correct, login will fail, and it will be impossible to retrieve the virtual machine list or communicate with the virtual machines.
 
-有了权限之后，PXVDI桌面客户端才能去通过qemu-guest-agent去获取虚拟机的信息，例如虚拟机是Windows系统还是Linux系统，这些都会有不同的连接策略。
+Therefore, the core of the interaction between PXVDI direct connection mode and Proxmox VE is the permission exchange.
 
-一句话就能概括PXVDI直连模式的逻辑，向Proxmox VE获取虚拟机列表，获取虚拟机ip。
+Once the permissions are granted, the PXVDI desktop client can use the qemu-guest-agent to obtain information about the virtual machines, such as whether they are running Windows or Linux, which will dictate different connection strategies.
+
+In summary, the logic of PXVDI direct connection mode can be encapsulated in one sentence: request the virtual machine list and IP address from Proxmox VE.

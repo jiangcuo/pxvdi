@@ -1,14 +1,14 @@
-# PXVDI 客户端架构
+# PXVDI Client Architecture
 
-PXVDI使用高性能的rust框架，支持多种架构和操作系统。
+PXVDI uses a high-performance Rust framework, supporting multiple architectures and operating systems."
 
 ![PXVDI client](../img/client1.png)
 
 
-## PXVDI 客户端组件
-下面是pxvdi客户端需要的组件
+## PXVDI Client Components
+Below are the components required for the PXVDI client.
 
-| 系统      | 组件        | 版本 | 调用路径   |
+| Platform      | Components        | Version | Program Call Path   |
 | ----------- | ------------- | ------ | ------------------------------------------------------------------------- |
 | Linux     | Freerdp     | 2    | /usr/bin/xfreerdp                                                       |
 | Linux     | Freerdp     | 3    | /usr/bin/xfreerdp3                                                      |
@@ -20,26 +20,26 @@ PXVDI使用高性能的rust框架，支持多种架构和操作系统。
 | Macos     | Freerdp     | 3    | /Applications/MacFreeRDP.app/Contents/MacOS/sdl-freerdp    |
 | Macos     | virt-viewer | 11   | /usr/local/bin/remote-viewer                                            |
 
-## PXVDI 客户端版本
+## PXVDI Client Version
 
-| 版本名称    | 版本说明          |
+| File Name    | Description          |
 | ----------------- | -------------------------------- |
-| pxvdi\_{version}\_amd64.AppImage      | 适用于兆芯、海光、intel、amd、via等x86\_64架构的Linux通用包。                         |
-| pxvdi\_{version}\_arm64.AppImage      | 适用于瑞芯微、飞腾、鲲鹏、ampere、博通等arm64架构的Linux通用包。                      |
-| pxvdi\_{version}\_debian12\_amd64.deb | 适用于兆芯、海光、intel、amd、via等x86\_64架构的debian12 包括armbian bookworm包。     |
-| pxvdi_{version}\_debian12\_arm64.deb | 适用于瑞芯微、飞腾、鲲鹏、amperes、博通等arm64架构的debian12 包括armbian bookworm包。 |
-| pxvdi_{version}\_live\_amd64.iso     | 适用于兆芯、海光、intel、amd、via等x86\_64架构的瘦客户端系统。                        |
-|pxvdi_{version}_arm64.dmg|适用于macos apple芯片，版本>= macos 12
+| pxvdi\_{version}\_amd64.AppImage      | Universal package for x86_64 architecture Linux, compatible with Zhaoxin, Haiguang, Intel, AMD, VIA, etc.                         |
+| pxvdi\_{version}\_arm64.AppImage      | Universal package for arm64 architecture Linux, compatible with Rockchip, Feiteng, Kunpeng, Ampere, Broadcom, etc.                  |
+| pxvdi\_{version}\_debian12\_amd64.deb | Debian 12 packages for x86_64 architecture, compatible with Zhaoxin, Haiguang, Intel, AMD, VIA, including Armbian Bookworm packages.    |
+| pxvdi_{version}\_debian12\_arm64.deb | Debian 12 packages for arm64 architecture, compatible with Rockchip, Feiteng, Kunpeng, Ampere, Broadcom, including Armbian Bookworm packages. |
+| pxvdi_{version}\_live\_amd64.iso     | Thin client system for x86_64 architecture, compatible with Zhaoxin, Haiguang, Intel, AMD, and VIA.                        |
+|pxvdi_{version}_arm64.dmg|Compatible with macOS Apple chips, version >= macOS 12.
 
-## PXVDI 客户端支持的模式
+## Supported modes of the PXVDI client.
 
-| 平台    | 支持情况          |
+| Platform    | Support status          |
 | ----------------- | -------------------------------- |
-| Linux      | 直连模式和总控模式 自由切换                         |
-| Windows     |           总控模式          |
-| MacOS | 总控模式  
+| Linux      | Direct connection mode and central control mode with seamless switching.                     |
+| Windows     |           Central control mode           |
+| MacOS |  Central control mode  
 
-## 下载地址
+## Download link.
 https://download.lierfang.com/pxvdi/Client/
 
 
