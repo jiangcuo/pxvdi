@@ -122,7 +122,11 @@ brew install virt-viewer
 
 ![PXVDI client](../img/client9.png)
 
-在Linux上，可以自由切换连接模式。
+`Connection Mode`
+
+在Linux上，可以自由切换连接模式。其他版本的OS均为总控模式，需要使用PXVDI服务端。
+
+如果要使用直连模式，请切换到直连模式。
 
 `Mac mode`, 客户端可以使用mac进行注册和登录，而无需账号密码验证，仅在总控模式中启用
 

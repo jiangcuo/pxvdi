@@ -179,7 +179,7 @@ pveum role add PxvdiUsers --privs "VM.Audit VM.Snapshot.Rollback VM.Console VM.P
 
 ## 8. 测试PXVDI ISO
 
-点击此链接 下载最新的iso 
+点击此链接 下载最新的iso（**直连模式只支持Linux 终端**）。
 
 https://download.lierfang.com/pxvdi/Client/iso/pxvdi_lastest_live_amd64.iso
 
@@ -187,7 +187,9 @@ https://download.lierfang.com/pxvdi/Client/iso/pxvdi_lastest_live_amd64.iso
 
 ### 8.1 配置服务器地址
 
-在设置中，输入服务器地址。
+**！！！请先在设置中切换成 直连模式，并保存。**
+
+再输入服务器地址。
 
 ![pxvdi使用](../img/startpxvdi1.png "pxvdistart")
 
