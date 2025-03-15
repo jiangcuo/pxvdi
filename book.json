@@ -1,0 +1,26 @@
+{
+    "title" : "PXVDI 文档中心",
+    "author" : "Lierfang",
+    "plugins": ["chapter-fold","sidebar-style","-lunr", "-search", "search-plus","prism",
+        "prism-themes",
+        "-highlight","splitter","anchors","alerts", "sectionx","anchor-navigation-ex"],
+    "pluginsConfig": 
+{
+    "sidebar-style": {
+        "title": "PXVDI 文档",
+        "author": "梨儿方"
+    },
+    "sitemap-general": {
+            "prefix": "https://docs.pxvirt.lierfang.com"
+        }
+    },"anchor-navigation-ex": {
+            "isRewritePageTitle": false,
+            "isShowTocTitleIcon": false,
+            "tocLevel1Icon": "fa fa-hand-o-right",
+            "tocLevel2Icon": "fa fa-hand-o-right",
+            "tocLevel3Icon": "fa fa-hand-o-right",
+            "tocLevel4Icon": "fa fa-hand-o-right"
+
+    }
+    
+}
