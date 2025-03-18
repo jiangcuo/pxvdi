@@ -103,3 +103,21 @@ ProxmoxVE具有原生的spice代理，位于集群中任意一个节点的`3128/
 
 桌面池创建完成之后，通过`查看桌面池`进行添加桌面，分配用户。
 
+点击`添加桌面`即可批量添加
+
+![alt text](../img/pool6.png)
+
+添加好了，可以点击`分配用户`，完成用户和虚拟机绑定。
+
+![alt text](../img/pool7.png)
+
+之后用户登录到客户端，即可查看到虚拟机。
+
+![alt text](../img/pool8.png)
+
+## 关机还原功能
+
+PXVIRT引入了关机还原功能，为虚拟机配置`关机还原`，可以让虚拟机还原到开机之前的数据状态。
+
+参考 https://docs.pxvirt.lierfang.com/zh/cli/qm.html#snapshot
+
