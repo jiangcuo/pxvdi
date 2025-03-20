@@ -5,7 +5,7 @@ rdpGW网关是rdp协议的开源实现
 
 # 部署rdpGW
 
-梨儿方为PXVDI 封装了rdpGW，是rdpGW的安装变得简单容易。
+梨儿方为PXVDI 封装了rdpGW，是rdpGW的安装变得简单容易。客户端版本请使用3.0.2及其以上版本
 
 
 如果需要更多的配置，参考github 
