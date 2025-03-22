@@ -3,7 +3,7 @@
 rdpGW网关是rdp协议的开源实现
 
 
-# 部署rdpGW
+## 部署rdpGW
 
 梨儿方为PXVDI 封装了rdpGW，是rdpGW的安装变得简单容易。客户端版本请使用3.0.2及其以上版本
 
@@ -22,7 +22,7 @@ dpkg -i rdpgw_2.0.2_amd64.deb
 
 安装结束之后，rdpgw会监听443 地址。
 
-# 修改rdpGW默认的账号密码
+## 修改rdpGW默认的账号密码
 
 rdpGW的账号密码位于`/etc/rdpgw/rdpgw-auth.yaml`。
 
@@ -32,7 +32,7 @@ rdpGW的账号密码位于`/etc/rdpgw/rdpgw-auth.yaml`。
 
 修改之后重启`systemctl restart rdpgw-auth  rdpgw`即可
 
-# SSL修正
+## SSL修正
 
 默认用的是自签名证书。
 

@@ -8,11 +8,12 @@ PXVIRT是梨儿方对Proxmox VE开发的虚拟化底层。PXVIRT是PXVDI的基�
 
 # 设计PXVDI服务端的安装位置。
 
-PXVDI可以安装到虚拟机或者硬件服务器。
+<font color=red  size=5> PXVDI可以安装到虚拟机或者硬件服务器。
 
-如果您要购买授权，最好将PXVDI安装到虚拟机内。这样机器变动，也不会影响授权。
+如果您要购买授权，最好将PXVDI安装到虚拟机内。这样虚拟机迁移，也不会影响授权。
 
-如果安装到硬件服务器上，请确保服务器的文件系统不出现问题。
+如果安装到硬件服务器上，要请确保服务器的文件系统不出现问题。如果磁盘损坏，那么授权将丢失。
+</font>
 
 # 安装数据库
 
@@ -29,6 +30,11 @@ apt install default-mysql-server -y
 mysql -uroot -p #此时再回车一下
 ALTER USER 'root'@'localhost' IDENTIFIED BY '新密码';
 ```
+
+>如果您的数据库和PXVDI服务端不是在同一服务器上，请开启远程访问权限。
+>
+>如果您的数据库不用root访问，请确保用户具有数据库的所有权限。
+
 
 # 安装主程序
 

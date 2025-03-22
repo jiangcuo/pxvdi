@@ -5,19 +5,19 @@
 这里为大家演示一下PXVDI服务端创建Windows11虚拟机的过程。
 
 
-# 基本设置
+## 基本设置
 
 ![alt text](../../img/servercreatevm1.png)
 
 选择对应的节点，输入虚拟机的名称（可以中文），选择架构，机型选择。
 
-# 硬件
+## 硬件
 
 ![alt text](../../img/servercreatevm2.png)
 
 这里CPU输入数量，内存输入数量，注意内存大小为G。系统类型选择win11，bios选择ovmf，同时开启安全启动和TPM用于Windows11 安装。
 
-# 磁盘
+## 磁盘
 
 ![alt text](../../img/servercreatevm3.png)
 
@@ -33,21 +33,21 @@
 光驱0是windows的iso，光驱1是驱动iso。
 
 
-# 网络
+## 网络
 
 在网络处选择对应的网桥，即可，注意如果是Windows11，强制要求联网安装，硬件类型选择e1000.
 
 
 ![alt text](../../img/servercreatevm5.png)
 
-# 完成
+## 完成
 
 ![alt text](../../img/servercreatevm6.png)
 
 没问题即可点击完成。
 
 
-# 开机
+## 开机
 
 ![alt text](../../img/servercreatevm7.png)
 
@@ -65,7 +65,7 @@
 
 ![alt text](../../img/servercreatevm10.png)
 
-# 进入安装流程
+## 进入安装流程
 
 选择对应的Windows版本
 
@@ -97,7 +97,7 @@
 
 ![alt text](../../img/servercreatevm17.png)
 
-# 安装Windows驱动
+## 安装Windows驱动
 
 打开任务管理器，找到驱动光盘
 

@@ -3,7 +3,7 @@
 目前PXVDI仅为微软AD域开发，或许兼容LDAP域，需要用户自己测试。
 
 
-# 准备虚拟机
+## 准备虚拟机
 
 创建一个 Windows Server 2012 r2以上版本的Windows Server虚拟机。
 
@@ -60,7 +60,7 @@
 
 
 
-# 使用ldaps
+## 使用ldaps
 
 
 参考
