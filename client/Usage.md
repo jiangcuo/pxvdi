@@ -4,6 +4,16 @@
 ## 1. 安装
 
 ### 1.1 主程序安装
+
+#### Windows
+
+请下载windows客户端，直接解压，运行install.bat，之后会被安装到"C:\Program Files\pxvdi"
+。如果不能运行，请下载webview2
+
+https://developer.microsoft.com/zh-cn/microsoft-edge/webview2
+
+同时支持pxvdihtml5网页调用。
+
 #### Linux OS
 
 根据客户端的cpu架构，下载对应的版本。
@@ -22,6 +32,7 @@ chmod +x pxvdi_latest_amd64.AppImage
 ./pxvdi_latest_amd64.AppImage
 ```
 
+
 #### Debian OS
 
 我们基于debian构建了安装包，可以直接使用debian进行安装，并且会自动下载组件
@@ -38,12 +49,6 @@ apt install -f ./pxvdi_3.0.1_debian12_amd64.deb
 https://download.lierfang.com/pxvdi/Client/macos/pxvdi_latest_arm64.dmg
 
 将程序拖动到应用程序中
-
-#### Windows
-
-请下载windows客户端，直接解压，运行pxvdi。如果不能运行，请下载webview2
-
-https://developer.microsoft.com/zh-cn/microsoft-edge/webview2
 
 ### 1.2 组件安装
 

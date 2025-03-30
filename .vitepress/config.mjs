@@ -109,10 +109,12 @@ export default defineConfig({
             items: [
               { text: '服务端', link: 'history/server'},
               { text: '客户端', link: 'history/client' },
+              { text: '嵌入式客户端', link: 'history/client-gtk' },
               { text: '网页版', link: 'history/html5' },
-              { text: '相关组件', link: 'history/other' }
            ]
-           }
+           },
+           { text: 'PXVDI软件源', link: 'pxvdi-source' },
+           { text: 'PXVDI工具', link: 'pxvdi-tools' }
         ]
       }
     ],
