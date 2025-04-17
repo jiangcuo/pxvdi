@@ -79,7 +79,7 @@ If you see the message "success," it indicates that the installation was success
 
 ### 4.1 Exiting the Program
 
-PXVDI has a daemon process. To exit the daemon and return to the desktop, press the operation keys `Ctrl + F4` `three` times in succession.
+PXVDI has a daemon process. To exit the daemon and return to the desktop, press the operation keys `ALT + F4` `three` times in succession.
 ### 4.2 网络连接
 
 Wired Network Card

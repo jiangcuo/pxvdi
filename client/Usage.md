@@ -91,7 +91,9 @@ brew install virt-viewer
 
 ### 2.1 初次使用
 
-点击`设置`，选择对应的语言，输入服务器地址,服务器地址是带协议和端口号地址，如`https://gw.pxvdi.lierfang.com:16003`。点击`保存`,随后点击`测试`,如果测试通过代表服务端可用。
+点击`设置`，选择对应的语言，输入服务器地址,服务器地址是带协议和端口号地址，如`https://gw.pxvdi.lierfang.com:16003`。如果是直连模式，服务器地址是PXVIRT或者pve的地址，如果是总控模式，地址是PXVD IHTML5或者PXVDI 服务端的地址。
+
+点击`保存`,随后点击`测试`,如果测试通过代表服务端可用。
 
 ![PXVDI client](../img/client5.png)
 
