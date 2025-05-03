@@ -77,7 +77,7 @@ systemctl restart pxvdihtml5
 
 进去之后可以做一下配置修改
 
-![](../IMG/html5mgr.png)
+![](../img/html5mgr.png)
 
 上传文件就是上传pxvdihtml5的deb包。需要重启才会生效
 
