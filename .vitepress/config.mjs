@@ -16,16 +16,23 @@ export default defineConfig({
       provider: 'local'
     },
     sidebar: [
+      
       {
         text: '介绍',
-        link: 'README'
-        // items: [
-        //   { text: '介绍', link: '/zh/README' },
-        //   { text: 'Runtime API Examples', link: '/api-examples' }
-        // ]
+        link: ''
       },
       {
-        text: '直连模式',
+        text: 'PXVDI For Hyper-V',
+        items: [
+           { text: '介绍', link: 'pxvdi-for-hyper-v/README'},
+           { text: '安装', link: 'pxvdi-for-hyper-v/install' },
+           { text: '系统管理', link: 'pxvdi-for-hyper-v/system' },
+           { text: '客户端使用', link: 'pxvdi-for-hyper-v/client' }
+        ]
+      },
+
+      {
+        text: 'PXVDI For Proxmox 直连模式',
         items: [
            { text: '介绍', link: 'zhi-lian-mo-shi/README'},
            { text: '入门', link: 'zhi-lian-mo-shi/ru-men' },
@@ -34,7 +41,7 @@ export default defineConfig({
         ]
       },
       {
-        text: '总控模式',
+        text: 'PXVDI For PXVIRT 总控模式',
         items: [
            { text: '介绍', link: 'zong-kong-mo-shi'},
            { text: '安装', link: 'zong-kong-mo-shi/install' },

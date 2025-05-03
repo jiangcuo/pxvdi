@@ -70,6 +70,18 @@ systemctl restart pxvdihtml5
 ```
 
 
+
+当升级到1.0.6版本之后，访问https://服务器ip:9091即可访问服务端管理后台。
+
+默认的账号密码为admin P@SSw0rd
+
+进去之后可以做一下配置修改
+
+![](../IMG/html5mgr.png)
+
+上传文件就是上传pxvdihtml5的deb包。需要重启才会生效
+
+
 之后可以通过浏览器访问 https://ip 地址进入到网页版。
 
 ![html5](../img/html5-3.png)
