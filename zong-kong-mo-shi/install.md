@@ -68,7 +68,7 @@ systemctl enable pxvdiserver #开机启动
 
 ![alt text](../img/server4.png)
 
-服务器重启之后，需要配置Pxvirt的地址，必须使用root@pam账号。主机地址为pve的ip，不填端口
+服务器重启之后，需要配置Pxvirt的地址，必须使用root@pam账号。主机地址为pve的ip，不填端口。*如果点击测试之后，没有报错，还在这个页面上，请直接退出浏览器进去，不要再次配置。* 这里有个bug
 
 ![alt text](../img/server5.png)
 
