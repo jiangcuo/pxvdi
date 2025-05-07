@@ -43,7 +43,7 @@ mysql -uroot -p #此时再回车一下
 # 创建一个lierfang用户，% 代表所有主机，可以远程连接密码为P@SSw0rd
 create user 'lierfang'@'%'  identified by 'P@SSw0rd';
 # 授予 lierfang 所有权限
-GRANT ALL PRIVILEGES ON * to 'lierfang'@'%';
+GRANT ALL PRIVILEGES ON *.* to 'lierfang'@'%';
 ```
 
 
