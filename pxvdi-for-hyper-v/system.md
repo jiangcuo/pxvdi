@@ -41,3 +41,17 @@ Set-VMHost -EnableEnhancedSessionMode $True
 程序的数据库保存在`C:\Program Files (x86)\lierfang\pxvdi-hyperv`下的`data.sql`.管理员可以通过数据库管理工具进行查看或者维护.如果需要备份数据,直接复制这个文件即可.
 
 
+## GPU-PV vGPU 驱动
+
+使用DISM++ 导出显卡驱动到某个地方。
+
+在虚拟机内部，在`C:\Windows\System32\`下面新建 `HostDriverStore`文件夹，在这个文件夹下再新建一个`FileRepository`。最后把驱动放到这个`FileRepository`内部。
+
+重启虚拟机应该驱动会生效。
+
+
+### vGPU兼容性
+
+AMD显卡在使用vGPU时，增强模式不可用，如果使用控制台去连接，则不要开启增强模式，此时usb重定向之类的不可用！
+
+建议使用RDP去连接。
