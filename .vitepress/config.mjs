@@ -27,7 +27,8 @@ export default defineConfig({
            { text: '介绍', link: 'pxvdi-for-hyper-v/README'},
            { text: '安装', link: 'pxvdi-for-hyper-v/install' },
            { text: '系统管理', link: 'pxvdi-for-hyper-v/system' },
-           { text: '客户端使用', link: 'pxvdi-for-hyper-v/client' }
+           { text: '客户端使用', link: 'pxvdi-for-hyper-v/client' },
+           { text: '更新日志', link: 'pxvdi-for-hyper-v/history' }
         ]
       },
 

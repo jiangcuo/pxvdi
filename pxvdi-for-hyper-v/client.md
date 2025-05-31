@@ -42,7 +42,7 @@ win7请安装.net4 或者直接安装所有的补丁。
 
 4. RDP工具
 
-    axrdp 程序集成的rdp工具。
+    axrdp 程序集成的rdp工具。在窗口模式下，可以调整桌面的分辨率。
 
     mstsc 系统的调用。如果是控制台连接,
     
@@ -77,4 +77,6 @@ RdpTool=axrdp
 
 其中Welcome和Footer都可以自定义。
 
+## 开机启动
 
+按 Win + R 打开运行，输入`shell:startup`把要`pxvdi-client`的快捷方式放到打开的窗口中即可。此方法是打开`开始菜单-程序-启动文件夹`。
