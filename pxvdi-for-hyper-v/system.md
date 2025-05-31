@@ -41,7 +41,25 @@ Set-VMHost -EnableEnhancedSessionMode $True
 程序的数据库保存在`C:\Program Files (x86)\lierfang\pxvdi-hyperv`下的`data.sql`.管理员可以通过数据库管理工具进行查看或者维护.如果需要备份数据,直接复制这个文件即可.
 
 
-## GPU-PV vGPU 驱动
+## GPU-PV vGPU 使用说明
+
+### GPU-PV 宿主机和虚拟机要求
+
+要能够使用GPU-PV vGPU技术，对虚拟机和物理机系统都有要求。
+
+1. 宿主机要求
+
+Windows 10 20H1+ Pro, Enterprise or Education 版本以上
+
+2. 虚拟机要求
+
+    - 虚拟机的系统和宿主机的系统一致。例如物理机为Win11 21H2，那么虚拟机就为Win11 21H2，这样才能驱动vGPU，都则就是43错误。
+
+    - 虚拟机需要关闭检查点功能
+
+
+
+### GPU-PV 驱动
 
 使用DISM++ 导出显卡驱动到某个地方。
 
@@ -52,6 +70,6 @@ Set-VMHost -EnableEnhancedSessionMode $True
 
 ### vGPU兼容性
 
-AMD显卡在使用vGPU时，增强模式不可用，如果使用控制台去连接，则不要开启增强模式，此时usb重定向之类的不可用！
+AMD显卡在使用vGPU时，增强模式可能不可用，如果使用控制台去连接，则不要开启增强模式，此时usb重定向之类的不可用！
 
 建议使用RDP去连接。
