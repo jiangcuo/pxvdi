@@ -9,7 +9,9 @@ https://download.lierfang.com/pxvdi/MIDServer/server/
 
 ## 运行环境
 
-请使用Windows10 以上的开启了Hyper-V的系统。例如Server 2016 - Server 2025
+请使用Windows10 以上的开启了Hyper-V的系统。例如Server 2016 - Server 2025。如果使用vGpu功能，请参考[系统使用](./system.md)
+
+本软件需要vc运行时，可以前往 `https://www.downza.cn/soft/186638.html` 下载。注意点`普通下载`
 
 
 ## 安装
@@ -59,6 +61,7 @@ https://download.lierfang.com/pxvdi/MIDServer/server/
 需要映射端口9921 和 2179到程序所在的服务器！
 
 
+## 版本更新
 
-
+请使用服务管理器，停止服务，然后运行新版本的exe，安装成功之后，再启动服务即可。
 
