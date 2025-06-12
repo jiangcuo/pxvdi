@@ -1,3 +1,12 @@
+# 3.0.5 20250612
+
+- 修复macos下freerdp路径问题
+- 增加macos高分屏检测
+- 增加macos下freerdp
+- 增加deeplink唤醒功能
+- 为linux添加sec功能
+- 增加日志功能，日志位于~/.pxvdi-tauri.log
+
 # 3.0.5 20250522
 
 - 修复网络断开，弹窗异常问题
