@@ -39,7 +39,7 @@ https://download.lierfang.com/pxvdi/MIDServer/server/
 
 ## 登陆
 
-打开浏览器，访问https://localhost:9921端口可以访问，默认的账号为admin，密码为admin
+打开浏览器，访问http://localhost:9921端口可以访问，默认的账号为admin，密码为admin
 
 
 请务必安装好Hyperv，否则网页会报错！
