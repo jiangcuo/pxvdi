@@ -32,15 +32,15 @@ export default defineConfig({
         ]
       },
 
-      {
-        text: 'PXVDI For Proxmox 直连模式',
-        items: [
-           { text: '介绍', link: 'zhi-lian-mo-shi/README'},
-           { text: '入门', link: 'zhi-lian-mo-shi/ru-men' },
-           { text: '用户管理', link: 'zhi-lian-mo-shi/user' },
-           { text: '虚拟机管理', link: 'zhi-lian-mo-shi/vm' }
-        ]
-      },
+      // {
+      //   text: 'PXVDI For Proxmox 直连模式',
+      //   items: [
+      //      { text: '介绍', link: 'zhi-lian-mo-shi/README'},
+      //      { text: '入门', link: 'zhi-lian-mo-shi/ru-men' },
+      //      { text: '用户管理', link: 'zhi-lian-mo-shi/user' },
+      //      { text: '虚拟机管理', link: 'zhi-lian-mo-shi/vm' }
+      //   ]
+      // },
       {
         text: 'PXVDI For PXVIRT 总控模式',
         items: [
@@ -95,7 +95,8 @@ export default defineConfig({
               { text: '阅卷机房',link: 'zong-kong-mo-shi/deploy/exam'},
               { text: 'GPU桌面',link: 'zong-kong-mo-shi/deploy/gpu'},
               { text: '外网体验',link: 'zong-kong-mo-shi/deploy/nat'},
-              { text: '与域集成',link: 'zong-kong-mo-shi/deploy/ad'}
+              { text: '与域集成',link: 'zong-kong-mo-shi/deploy/ad'},
+              { text: '剪切板控制',link: 'zong-kong-mo-shi/deploy/clipboard'}
             ]
            },
            { text: '常见问题', link: 'zong-kong-mo-shi/issue/index' },
@@ -137,11 +138,11 @@ export default defineConfig({
       label: '简体中文',
       lang: 'zh-CN'
       },
-    en: {
-      label: 'English',
-      lang: 'en', 
-      link: '/en/'
-    }
+    // en: {
+    //   label: 'English',
+    //   lang: 'en', 
+    //   link: '/en/'
+    // }
   },
   markdown: {
     image: {

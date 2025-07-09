@@ -63,6 +63,13 @@
 
 如果没有选择all，客户端只允许一种协议进行连接，客户端的配置将无效。
 
+>特殊处理
+>
+>在Macos下，不管选择的freerdp2还是freerdp3，客户端均使用freerdp3。
+>
+>在Windows下，使用freerdp3将激活Windows内置的msrdp控件（性能会更好），使用freerdp2则使用freerdp控件（具有剪切板限制）。
+>
+
 ### spice代理
 
 当选择spice或者all时，必须需要配置一个spice代理。
