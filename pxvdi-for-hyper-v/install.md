@@ -13,7 +13,9 @@ https://download.lierfang.com/pxvdi/MIDServer/server/
 
 本软件需要vc运行时，可以前往 `https://www.downza.cn/soft/186638.html` 下载。注意点`普通下载`
 
-
+::: danger 警告!!
+如果不安装vc运行时，服务将无法启动!
+:::
 ## 安装
 
 本程序没有签名，会被Windows 检测，届时请保留或者允许。

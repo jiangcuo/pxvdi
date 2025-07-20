@@ -2,8 +2,17 @@
 
 ## 下载
 
+HyperV Client 有2种客户端。
+
+1. HyperV 专用客户端，仅支持Windows系统，性能最好
+
 前往`https://download.lierfang.com/pxvdi/Client/windows/`,下载`pxvdi-hyperv-client.exe` 程序
 
+本页面都是该专用客户端的说明
+
+2. HyperV 兼容客户端，支持Macos、linux、Windows。
+
+参考 [瘦客户端使用](../client/README.md)
 
 ## 兼容的系统
 
