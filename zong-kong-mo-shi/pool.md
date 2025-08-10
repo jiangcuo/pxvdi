@@ -56,8 +56,9 @@
 - spice
 - freerdp2
 - freerdp3
-- pcoip
-- blast
+- pcoip (vmware pcoip)
+- blast (vmare blast)
+- moonlight
 
 选择all时，客户端可以选择任意协议进行连接，默认的连接策略，由本地客户端配置进行控制。
 
