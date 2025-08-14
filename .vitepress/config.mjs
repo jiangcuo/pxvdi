@@ -53,7 +53,9 @@ export default defineConfig({
               { text: '虚拟机开启RDP功能', link: 'zong-kong-mo-shi/vm/rdpvm' },
               { text: '虚拟机开启SPICE功能', link: 'zong-kong-mo-shi/vm/spicevm' },
               { text: '虚拟机开启VMware horizon功能', link: 'zong-kong-mo-shi/vm/horizonvm' },
+              { text: '虚拟机开启moonlight连接功能', link: 'zong-kong-mo-shi/vm/moonlightvm' },
               { text: '模板虚拟机管理', link: 'zong-kong-mo-shi/vm/templatevm' },
+
             ]
            },
            { text: '桌面池管理', link: 'zong-kong-mo-shi/pool',
