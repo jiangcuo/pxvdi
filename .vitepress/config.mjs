@@ -99,7 +99,8 @@ export default defineConfig({
               { text: 'GPU桌面',link: 'zong-kong-mo-shi/deploy/gpu'},
               { text: '外网体验',link: 'zong-kong-mo-shi/deploy/nat'},
               { text: '与域集成',link: 'zong-kong-mo-shi/deploy/ad'},
-              { text: '剪切板控制',link: 'zong-kong-mo-shi/deploy/clipboard'}
+              { text: '剪切板控制',link: 'zong-kong-mo-shi/deploy/clipboard'},
+              { text: '瘦客户端性能优化',link: 'zong-kong-mo-shi/deploy/thinclient'}
             ]
            },
            { text: '常见问题', link: 'zong-kong-mo-shi/issue/index' },
