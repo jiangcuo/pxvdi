@@ -1,8 +1,12 @@
+# 4.0.0 20251107
+
+- 使用flutter架构重构客户端，支持andriod版本
+
 # 3.0.7 20250701
 
- - 增加HyperV 服务端的支持
- - 修复Windows上无法被html5唤醒的问题
- - 增加Windows下freerdp，当连接协议为freerdp2时，将使用freerdp，当连接协议为freerdp3时，使用mstsc
+- 增加HyperV 服务端的支持
+- 修复Windows上无法被html5唤醒的问题
+- 增加Windows下freerdp，当连接协议为freerdp2时，将使用freerdp，当连接协议为freerdp3时，使用mstsc
 
 # 3.0.6 20250612
 

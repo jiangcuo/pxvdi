@@ -47,13 +47,16 @@ export default defineConfig({
         items: [
            { text: '介绍', link: 'zong-kong-mo-shi'},
            { text: '安装', link: 'zong-kong-mo-shi/install' },
+           { text: '激活产品', link: 'zong-kong-mo-shi/license'},
            { text: '虚拟机管理', link: 'zong-kong-mo-shi/vm',
             items: [
               { text: '创建虚拟机', link: 'zong-kong-mo-shi/vm/createvm' },
+              { text: '认识多种连接方式',link: 'lian-jie-xie-yi' },
               { text: '虚拟机开启RDP功能', link: 'zong-kong-mo-shi/vm/rdpvm' },
               { text: '虚拟机开启SPICE功能', link: 'zong-kong-mo-shi/vm/spicevm' },
               { text: '虚拟机开启VMware horizon功能', link: 'zong-kong-mo-shi/vm/horizonvm' },
               { text: '虚拟机开启moonlight连接功能', link: 'zong-kong-mo-shi/vm/moonlightvm' },
+              { text: '虚拟机开启PXVDIStream连接功能', link: 'zong-kong-mo-shi/vm/pxvdistreamvm' },
               { text: '模板虚拟机管理', link: 'zong-kong-mo-shi/vm/templatevm' },
 
             ]
