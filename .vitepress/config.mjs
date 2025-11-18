@@ -126,7 +126,7 @@ export default defineConfig({
             items: [
               { text: '服务端', link: 'history/server'},
               { text: '客户端', link: 'history/client' },
-              { text: '嵌入式客户端', link: 'history/client-gtk' },
+              { text: 'PxvdiSteam', link: 'history/pxvdistream' },
               { text: '网页版', link: 'history/html5' },
            ]
            },
