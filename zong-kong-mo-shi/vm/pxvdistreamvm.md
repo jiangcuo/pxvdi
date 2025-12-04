@@ -331,3 +331,8 @@ x11=true
 
 修改之后，重启以下虚拟机，即可生效
 
+
+## USB重定向部署
+
+PXVDIStream 通过SPICE完成USB重定向，如果要实现USB重定向，需要为虚拟机配置多个USB设备，后端选择spice。同时在连接协议处，配置SPICE代理地址。
+

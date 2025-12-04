@@ -70,6 +70,9 @@
 >
 >在Windows下，使用freerdp3将激活Windows内置的msrdp控件（性能会更好），使用freerdp2则使用freerdp控件（具有剪切板限制）。
 >
+>如果要使用PXVDIStream 支持usb重定向，请配置SPICE 代理！
+>
+>
 
 ### spice代理
 
