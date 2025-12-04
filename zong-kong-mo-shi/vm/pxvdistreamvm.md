@@ -86,7 +86,7 @@ https://mirrors.lierfang.com/pxcloud/pxvdi/PxvdiStream
 
 Windows 平台依赖gstreamer 环境
 
-https://mirrors.lierfang.com/pxcloud/pxvdi/PxvdiStream/gstreamer-1.0-msvc-x86_64-1.27.2.msi
+https://mirrors.lierfang.com/pxcloud/pxvdi/PxvdiStream/gstreamer-1.0-mingw-x86_64-1.26.8.msi
 
 ![alt text](../../img/pxvdistream1.png)
 
@@ -98,7 +98,7 @@ https://mirrors.lierfang.com/pxcloud/pxvdi/PxvdiStream/gstreamer-1.0-msvc-x86_64
 
 添加以下 gstreamer path到环境变量  
 
-`C:\Program Files\gstreamer\1.0\msvc_x86_64\bin`
+`C:\Program Files\gstreamer\1.0\mingw_x86_64\bin`
 
 ![alt text](../../img/pxvdistream3.png)
 

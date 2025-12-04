@@ -53,7 +53,7 @@ GRANT ALL PRIVILEGES ON *.* to 'lierfang'@'%';
 
 服务端程序下载地址为：
 
-https://download.lierfang.com/pxvdi/MIDServer/server/
+https://mirrors.lierfang.com/pxcloud/pxvdi/MIDServer/server/
 
 请上传到服务器中
 

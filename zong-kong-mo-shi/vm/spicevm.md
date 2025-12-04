@@ -3,8 +3,7 @@
 ## 安装SPICE组件
 请下载spice-guest-tools-latest.exe
 
-https://download.lierfang.com/proxmox/drivers/spice-guest-tools-latest.exe
-
+Spice组件在virtio-win 驱动中已经集成
 
 ## 修改SPICE显示器
 在虚拟机中安装，安装结束之后在PXVIRT或者PXVDI页面上，将显示修改成SPICE专用（PXVDI）。

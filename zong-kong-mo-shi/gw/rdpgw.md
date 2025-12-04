@@ -16,7 +16,7 @@ https://github.com/bolkedebruin/rdpgw
 在debian12的服务器上执行一下命令就可以安装。
 
 ```
-wget https://download.lierfang.com/pxcloud/pxvdi/dists/bookworm/main/binary-amd64/rdpgw_2.0.2_amd64.deb
+wget https://mirors.lierfang.com/pxcloud/pxvdi/dists/bookworm/main/binary-amd64/rdpgw_2.0.2_amd64.deb
 dpkg -i rdpgw_2.0.2_amd64.deb
 ```
 

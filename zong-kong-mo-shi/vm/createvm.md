@@ -47,6 +47,11 @@
 没问题即可点击完成。
 
 
+## 声音
+
+请在VM 的详情页->其他->声卡处 创建一个声卡 ich9-intel-hd 设备，后端选择none
+
+
 ## 开机
 
 ![alt text](../../img/servercreatevm7.png)

@@ -17,6 +17,19 @@ PXVDI HTML5 客户端需要cpu大于4核 内存大于1G 即可
 
 ## 安装pxvdihtml5
 
+### Docker 安装
+
+```bash
+docker run -idt --name pxvdihtml5 --restart=awlays -p 443:443 -p 9091:9091 -v ~/.lierfang:/root/.lierfang lierfang/pxvdihtml5
+```
+
+或者使用镜像站点
+
+```bash
+docker run -idt --name pxvdihtml5 --restart=awlays -p 443:443 -p 9091:9091 -v ~/.lierfang:/root/.lierfang docker.1ms.run/lierfang/pxvdihtml5
+```
+
+
 ### debian 系列
 添加apt key
 
