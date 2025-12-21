@@ -7,12 +7,8 @@
 
 #### Windows
 
-请下载windows客户端，直接解压，运行install.bat，之后会被安装到"C:\Program Files\pxvdi"
-。如果不能运行，请下载webview2
+下载客户端之后，运行exe，程序之后会被安装到"C:\Program Files(x86)\lierfang\Pxvdi"
 
-https://developer.microsoft.com/zh-cn/microsoft-edge/webview2
-
-同时支持pxvdihtml5网页调用。
 
 #### Linux OS
 
@@ -20,9 +16,9 @@ https://developer.microsoft.com/zh-cn/microsoft-edge/webview2
 
 
 ```
-wget https://download.lierfang.com/pxvdi/Client/linux/pxvdi_latest_amd64.AppImage
+wget https://mirrors.lierfang.com/pxcloud/pxvdi/Client/linux/pxvdi_latest_amd64.AppImage
 OR
-curl -L -O https://download.lierfang.com/pxvdi/Client/linux/pxvdi_latest_amd64.AppImage
+curl -L -O https://mirrors.lierfang.com/pxcloud/pxvdi/Client/linux/pxvdi_latest_amd64.AppImage
 ```
 
 授予权限并执行
@@ -33,20 +29,20 @@ chmod +x pxvdi_latest_amd64.AppImage
 ```
 
 
-#### Debian OS
+<!-- #### Debian OS
 
 我们基于debian构建了安装包，可以直接使用debian进行安装，并且会自动下载组件
 ```
 wget https://download.lierfang.com/pxvdi/Client/linux/pxvdi_3.0.1_debian12_amd64.deb
 apt update
 apt install -f ./pxvdi_3.0.1_debian12_amd64.deb
-```
+``` -->
 
-#### MacOS
+#### MacOS 仅支持apple soc
 
 下载客户端，直接打开dmg文件
 
-https://download.lierfang.com/pxvdi/Client/macos/pxvdi_latest_arm64.dmg
+https://mirrors.lierfang.com/pxcloud/pxvdi/Client/macos/pxvdi-latest.dmg
 
 将程序拖动到应用程序中
 
@@ -54,7 +50,7 @@ https://download.lierfang.com/pxvdi/Client/macos/pxvdi_latest_arm64.dmg
 
 debian系
 ```
-apt update && apt -y install freerdp2-x11 virt-viewer
+apt update && apt -y install freerdp3-x11 virt-viewer 
 ```
 
 rhel系
@@ -91,7 +87,7 @@ brew install virt-viewer
 
 ### 2.1 初次使用
 
-点击`设置`，选择对应的语言，输入服务器地址,服务器地址是带协议和端口号地址，如`https://gw.pxvdi.lierfang.com:16003`。如果是直连模式，服务器地址是PXVIRT或者pve的地址，如果是总控模式，地址是PXVD IHTML5或者PXVDI 服务端的地址。
+点击`设置`，选择对应的语言，输入服务器地址,服务器地址是带协议和端口号地址，如`https://gw.pxvdi.lierfang.com:16003`。
 
 点击`保存`,随后点击`测试`,如果测试通过代表服务端可用。
 
@@ -143,46 +139,33 @@ brew install virt-viewer
 
 `Advanced settings`,高级设置
 
+`Sudo 权限`，针对macos上使用sudo 重定向usb设备
+
 #### 高级设置
 
-- 全屏开关
-  - 控制软件是否全屏，以及以后的连接是否全屏。所有的协议均能控制
-- Debug
-  - 启用DEBUG模式
-- 自动登录
-  - 自动登录
-- 回滚
-  - 运行用户使用快照回滚桌面
-- 独立连接
-  - 开启一个选项，可以使用本程序，连接到指定的rdp或者vnc服务器
-- 连接方式
-  - 可选SPICE/Freerdp/Horizon协议。
-- freerdp设置
-  - freerdp版本：配置freerdp的版本，3是最新版本，修复了2存在的bug，2是稳定版本。
-  - 编解码：配置freerdp的解码方式，推荐使用420，如果不支持硬件解码，请使用软件解码
-  - 色深：配置freerdp的色彩深度，值越大，色彩越好。
-  - 缩放：配置freerdp的缩放比率，适合在高分辨率屏中使用
-- VMware设置
-  - 连接协议：Blast和PCOIP，PCOIP适合性能差的瘦客户机。
-  - 状态栏开关：是否显示连接的状态栏，开启后，可以在云桌面中显示高级选项，如USB重定向，配置连接解码方式等
-- ipv6设置：是否开启IPV6
-- 网关设置：
-  - AD模式：将用户的登录信息作为云桌面的登录账户，用户无需输入2次密码，如果配置自动登录，用户可以开机登录到桌面。需要云桌面和服务器端加域。
-  - 使用网关：配置使用rdp的网关。在ipv6启用的情况下，会忽略网关。
-  - 使用用户账号密码：将用户的账户密码作为rdp网关凭据
-  - 网关账号：rdp网关账号
-  - 网关密码：rdp网关密码。
-该功能可以让外部客户端访问内网桌面。
-- 资源设置：
-  - 多监视器：允许使用多个屏幕，勾选此项之后，无论是否全屏，云桌面都会全屏。
-  - 驱动器重定向：允许重定向瘦客户端的磁盘，如移动磁盘、内置磁盘等等。
-  - 声音重定向：允许云桌面播放声音，并从瘦客户端发出来。
-  - 打印重定向：允许云桌面使用本地打印机。
-  - usb重定向：允许云桌面读取本地的USB设备。
-  - 麦克风重定向：允许云桌面使用麦克风。
-  - 剪切板重定向：运行云桌面进行剪切板同步。
-  - 串口重定向：将串口重定向给rdp
-
+- 连接类型 
+  当服务端桌面池设置连接方式为all的时候，这里的首选连接方式
+- 串口 需要重定向串口 （已废弃）
+- 比特率 视频的比特率，适用于moonlight和pxvdi
+- 帧率 视频的帧率，适用于moonlight和pxvdi
+- 调试模式 开启debug日志，开启此项会影响性能
+- 显示菜单栏 废弃
+- 全屏模式 全屏启动
+- 自动登录 打开程序之后，自动登录
+- mac模式 使用mac地址登录模式
+- Moonlight 设置
+  - 编码器 moonlight的视频流编码器
+  - 解码器 moonlight的视频流解码器
+  - 游戏优化 moonlight的游戏优化
+  - 444色深 moonlight的444色深
+- PXVDI 设置
+  - 外网模式 开启PXVDI的外网模式！允许通过外网访问
+  - 瘦客户端模式 使用瘦客户端模式
+  - 远程管理 运行服务器管理本客户端
+  - 隐藏设置  把设置隐藏，如果需要启用，编辑配置文件~/.lierfang/pxvdi-config.json 将setting设置为true
+  - SDL客户端 使用SDL客户端而不是程序集成的客户端，SDL客户端性能会好一点，
+    - 解码器 SDL客户端的解码器
+    - 渲染器 SDL客户端的渲染器，使用canvas性能和兼容性都很好！
 
 #### 虚拟机列表页
 
@@ -212,21 +195,3 @@ brew install virt-viewer
 
 - 头像 注销登录
 
-
-### 2.3 特殊设置
-
-####  UserMode
-在Usermode下，pxvdi调用的freerdp路径位于~/.xfreerdp，该方案无需用户拥有root权限就可以连接到桌面。
-
-如以下场景
-
-普通用户下载pxvdi.appimage，下载freerdp.appimage。将freerdp.appimage改名到~/.xfreerdp双击pxvdi就可以连接到桌面，在此过程中完全不需要root权限。
-
-#### 独立连接
-
-开启独立连接之后，会在首页出现独立连接按钮。独立连接可以手动连接到桌面
-![PXVDI client](../img/client12.png)
-
-#### 设置隐藏
-
-使用终端，编辑~/.pxvdiconfig.json， 将setting这个值改成false，重启软件即可隐藏设置功能。
