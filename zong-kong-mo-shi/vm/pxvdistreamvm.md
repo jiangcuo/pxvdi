@@ -16,6 +16,8 @@ PXVDIStream原生支持外网映射，通过部署我们的PXVDI HTML5组件 即
 
 最后通过gstreamer 进行编码使用硬件编码或者x264进行编码串流
 
+声音部分需要用户在后台中添加一个声卡，选择spice或者none，或者在系统中创建虚拟声卡！否则将没有声音！
+
 
 ## PXVDIStream 支持的系统
 
@@ -65,10 +67,10 @@ Linux 系统使用Appimage构建，基本兼容现代主流的linux，如果需�
 
 |系统类型|GPU类型|状态|
 |-|-|-|
-|windows|amd|不支持硬件解码|
-|windows|nvidia|不支持硬件解码|
-|windows|intel|支持|
-|linux|any|不支持硬件解码|
+|windows|amd|仅sdl客户端支持|
+|windows|nvidia|仅sdl客户端支持|
+|windows|intel|仅sdl客户端支持|
+|linux|any|sdl客户端支持|
 |andriod|any|支持硬件解码|
 |ios|any|支持硬件解码|
 |macos|any|支持硬件解码|
@@ -82,42 +84,13 @@ https://mirrors.lierfang.com/pxcloud/pxvdi/PxvdiStream
 
 ## Windows 安装
 
-### 先安装gstreamer
-
-Windows 平台依赖gstreamer 环境
-
-https://mirrors.lierfang.com/pxcloud/pxvdi/PxvdiStream/gstreamer-1.0-mingw-x86_64-1.26.8.msi
-
-![alt text](../../img/pxvdistream1.png)
-
-下载之后，点击安装，点击上图的complete 模式安装 
-
-![alt text](../../img/pxvdistream2.png)
-
-随后一直进行即可。
-
-添加以下 gstreamer path到环境变量  
-
-`C:\Program Files\gstreamer\1.0\mingw_x86_64\bin`
-
-![alt text](../../img/pxvdistream3.png)
-
-
-### 安装vc运行库
-
-本软件需要vc运行时，可以前往 https://www.downza.cn/soft/186638.html 下载。注意点普通下载
-
-### 安装PxvdiStream
+## 安装PxvdiStream
 
 https://mirrors.lierfang.com/pxcloud/pxvdi/PxvdiStream/
 
 文件名为pxvdistream---版本号
 
 随后直接双击即可，一直下一步即可
-
-
-如果提示dll 找不到，请安装vc运行库和gstreamer。
-
 
 此时打开浏览器 ，输入https://127.0.0.1:9923
 
@@ -145,6 +118,7 @@ apiserver=192.168.1.250:3002
 
 重启系统就完成了
 
+如果你是外部桌面，可以直接指定 uuid={随机UUID}，在平台中添加这个UUID即可完成外部桌面的配置
 
 
 ## Linux 安装
@@ -330,6 +304,56 @@ x11=true
 ```
 
 修改之后，重启以下虚拟机，即可生效
+
+## 使用容器——以Linux 无头模式部署
+
+#### 优势
+针对LXC 和 Docker 用户，PxvdiStream 支持无头模式部署，使用容器技术，可以极大的节省CPU 和内存开销，还能共享主机硬件，如nvidia,intel-gpu等，同时也有很好的隔离性，也可以作为Linux桌面使用。
+
+#### 限制
+
+1. 无法使用任何外置设备！ 这是容器的限制！因此usb重定向是不可用的！
+
+#### 部署
+
+无头模式需要使用xvfb，请先安装xvfb。
+
+另外管理员可以选择用户需要的桌面类型！目前较为简单的是
+
+- LXDE
+- LXQt
+- XFCE4 
+
+例如ubuntu
+```
+apt update
+apt install lxde xorg xserver-xorg-input-all pulseaudio -y
+```
+
+这时候创建一个启动脚本，用于启动桌面环境
+
+```
+#!/bin/bash
+pulseaudio --start &
+
+pactl load-module module-null-sink sink_name=virtmic \
+    sink_properties=device.description=Virtual_Microphone_Sink
+
+pactl load-module module-remap-source \
+    master=virtmic.monitor source_name=virtmic \
+    source_properties=device.description=Virtual_Microphone
+
+export DISPLAY=:99
+Xvfb :99 -screen 0 1920x1080x24 &
+sleep 2
+startlxde &
+```
+
+可以把最后的startlxde 替换为其他桌面环境，如startxfce4
+
+之后 请参考上文 将pxvdistream 作为`x11` 捕获，即可完成部署！
+
+容器仅支持使用外部桌面管理！
 
 
 ## USB重定向部署

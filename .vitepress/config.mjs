@@ -95,6 +95,7 @@ export default defineConfig({
             },
            { text: '平台配置', link: 'zong-kong-mo-shi/platform' },
            { text: '客户端管理', link: 'zong-kong-mo-shi/client' },
+           { text: '外部桌面管理', link: 'zong-kong-mo-shi/extenddesk' },
            { text: '部署案例', link: 'zong-kong-mo-shi/deploy/index' ,
             items:[
               { text: '日常桌面',link: 'zong-kong-mo-shi/deploy/normal'},
