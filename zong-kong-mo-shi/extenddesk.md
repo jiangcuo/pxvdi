@@ -38,5 +38,7 @@ PXVDI 服务端添加局域网的桌面，支持VMware\HyperV\KVM\物理机等�
 
 如果外部桌面在线的话！这里可以列出来，并且在桌面池内添加外部桌面即可！
 
+![alt text](../img/extenddesk3.png)
 
+![alt text](../img/extenddesk4.png)
 

@@ -123,7 +123,7 @@ apiserver=192.168.1.250:3002
 
 ## Linux 安装
 
-###  Linux前置要求
+### Linux前置要求
 
 Linux 分为2种捕获模式，一种为x11捕获，一种为drm捕获。
 
@@ -360,3 +360,17 @@ startlxde &
 
 PXVDIStream 通过SPICE完成USB重定向，如果要实现USB重定向，需要为虚拟机配置多个USB设备，后端选择spice。同时在连接协议处，配置SPICE代理地址。
 
+## 直连模式
+
+PXVDIStream 也支持直连模式，通过pxvdistreamclient直接连接到pxvdistream server.pxvdistreamclient 位于 pxvdi 同样的目录当中！
+
+请在配置文件中加入
+```
+username=admin
+password=123456
+```
+即可配置完成。
+
+使用pxvdistreamcient --address youip --username admin --password 123456 即可连接。
+
+额外的参数 --fps 60|120|144  --bitreate 10|20|50（码率单位为M）
