@@ -126,11 +126,14 @@ PXVDI会读取ostype的值，并且进行针对性的优化
 | Freerdp（非ad模式） | 需要关闭nla认证                       |
 | Spice               | 支持                                  | 支持 | 支持 | 支持 |
 | Horizon             | https://kb.vmware.com/s/article/78714 | 不支持 | 不支持 | 不支持 |
+| PxvdiStream             | 1809+ | 不支持 | 不支持 | 不支持 |
 
 ## 资料下载
 
 1. Windows 的ISO，可在msdn.itellyou.cn下载
 
-2. Windows 的KVM驱动，可点此下载 https://download.lierfang.com/proxmox/drivers/
+2. Windows 的KVM驱动，可点此下载 https://mirrors.lierfang.com/pxcloud/pxvdi/Extra/virtio-win/virtio-win-0.1.285.iso
 
-3. Spice guest tools https://download.lierfang.com/proxmox/drivers/spice-guest-tools-latest.exe
+3. Windows win7 及其以前的KVM驱动，可点此下载 https://mirrors.lierfang.com/pxcloud/pxvdi/Extra/virtio-win/virtio-win-0.1.171.iso
+
+4. Spice guest tools https://mirrors.lierfang.com/pxcloud/pxvdi/Extra/virtio-win/spice-guest-tools-latest.exe

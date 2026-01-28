@@ -5,3 +5,7 @@
 对于在线桌面，可以进行操作，比如文件部署，
 
 ![alt text](../img/deskstatus1.png)
+
+## 瘦客户机管理
+
+借助Pxvdistream的通信功能，管理员可以在瘦客户端中安装PxvdiStream，以[外部桌面](./extenddesk.md)形式加入到桌面池内，这样也可以在本页面管理瘦客户端，进行批量升级，等等！

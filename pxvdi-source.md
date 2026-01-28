@@ -2,19 +2,29 @@
 
 PXVDI 支持使用软件源来安装业务，例如客户端、服务端。
 
-仅支持debian12系统，包括架构 arm64 amd64 armhf(嵌入式)
+仅支持debian12/debian13系统，包括架构 arm64 amd64 loong64
+
+本软件源是为瘦客户机和pxvdiserver 设计的！其他用途请勿使用！
 
 ## 添加apt key
 
 ```bash
-curl -L https://download.lierfang.com/pxcloud/lierfang.gpg -o /etc/apt/trusted.gpg.d/lierfang.gpg
+curl -L https://mirrors.lierfang.com/pxcloud/lierfang.gpg -o /etc/apt/trusted.gpg.d/lierfang.gpg
 
 ```
 
 ## 添加源
 
+debian12
+
 ```bash
-echo "deb https://download.lierfang.com/pxcloud/pxvdi bookworm main" > /etc/apt/sources.list.d/pxvdi-sources.list
+echo "deb https://mirrors.lierfang.com/pxcloud/pxvdi bookworm main" > /etc/apt/sources.list.d/pxvdi-sources.list
+```
+
+debian13 
+
+```bash
+echo "deb https://mirrors.lierfang.com/pxcloud/pxvdi trixie main" > /etc/apt/sources.list.d/pxvdi-sources.list
 ```
 
 ## 安装组件
@@ -22,12 +32,11 @@ echo "deb https://download.lierfang.com/pxcloud/pxvdi bookworm main" > /etc/apt/
 客户端
 ```bash
 apt update 
-apt install pxvdi freerdp2-x11 freerdp3-x11 pxvdi-gtk
-
+apt install pxvdi freerdp3-x11 pxvdi-thin-client pxvdistream pxvdistreamclient
 ```
 
 服务端
 ```bash
 apt update 
-apt install pxvdiserver 
+apt install pxvdiserver -y
 ```
