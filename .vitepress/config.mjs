@@ -114,6 +114,7 @@ export default defineConfig({
         text: '客户端文档',
         items: [
            { text: '介绍', link: 'client/README'},
+           { text: '硬件要求', link: 'client/hardware' },
            { text: '客户端使用说明', link: 'client/Usage' },
            { text: '瘦客户端系统使用说明', link: 'client/ThinOS' },
            { text: 'HTML5客户端使用说明', link: 'client/html5' }
