@@ -73,24 +73,12 @@ PXVDI具有守护进程，连续按下操作键`ALT + f4` 3次，即可退出守
 
 ### 5.2 网络连接
 
-有线网卡
-PXVDI 瘦客户端系统集成大部分主流的Linux驱动，并且开机dhcp获取ip，
+直接点击瘦客户机下面的菜单，即可打开网络连接。
 
+![image](../img/thinclient2.png)
 
-无线WIFI
+支持有线和无线网络连接。
 
-PXVDI 瘦客机系统截止目前没有可视化WIFI连接方法，未来会有，届时您将不会看到这句话。
- 右击桌面空白处，点击设置网络
-![PXVDI client](../img/thinos4.png)
-
-点击左下角＋号，选择WIFI，点击创建。
-![PXVDI client](../img/thinos5.png)
-
-在SSID处输入WIFI名，在设备处选择WIFI硬件。
-![PXVDI client](../img/thinos6.png)
-随后点击WI-FI安全性，一般的WIFI，选择下图的认证即可，随后输入密码，并保存。
-![PXVDI client](../img/thinos7.png)
-不出意外，WIFI将会自动连接。
 
 ### 5.3 系统声音设置
 

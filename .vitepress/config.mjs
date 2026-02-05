@@ -1,7 +1,20 @@
 import { defineConfig } from 'vitepress'
 
+const mermaidPlugin = (md) => {
+  const fence = md.renderer.rules.fence.bind(md.renderer.rules)
+  md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+    const token = tokens[idx]
+    if (token.info.trim() === 'mermaid') {
+      const code = token.content.trim()
+      return `<div class="mermaid-wrapper"><pre class="mermaid">${code}</pre></div>`
+    }
+    return fence(tokens, idx, options, env, self)
+  }
+}
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  srcExclude: ['_book/**', 'extend/**', 'node_modules/**'],
   ignoreDeadLinks: true,
   title: "PXVDI",
   description: "梨儿方 文档中心",
@@ -50,8 +63,8 @@ export default defineConfig({
            { text: '激活产品', link: 'zong-kong-mo-shi/license'},
            { text: '虚拟机管理', link: 'zong-kong-mo-shi/vm',
             items: [
-              { text: '创建虚拟机', link: 'zong-kong-mo-shi/vm/createvm' },
               { text: '认识多种连接方式',link: 'lian-jie-xie-yi' },
+              { text: '创建虚拟机', link: 'zong-kong-mo-shi/vm/createvm' },
               { text: '虚拟机开启RDP功能', link: 'zong-kong-mo-shi/vm/rdpvm' },
               { text: '虚拟机开启SPICE功能', link: 'zong-kong-mo-shi/vm/spicevm' },
               { text: '虚拟机开启VMware horizon功能', link: 'zong-kong-mo-shi/vm/horizonvm' },
@@ -116,6 +129,7 @@ export default defineConfig({
            { text: '介绍', link: 'client/README'},
            { text: '硬件要求', link: 'client/hardware' },
            { text: '客户端使用说明', link: 'client/Usage' },
+           { text: '瘦客户端软件使用说明', link: 'client/ThinClient' },
            { text: '瘦客户端系统使用说明', link: 'client/ThinOS' },
            { text: 'HTML5客户端使用说明', link: 'client/html5' }
         ]
@@ -154,6 +168,9 @@ export default defineConfig({
     // }
   },
   markdown: {
+    config: (md) => {
+      md.use(mermaidPlugin)
+    },
     image: {
       // 默认禁用；设置为 true 可为所有图片启用懒加载。
       lazyLoading: true

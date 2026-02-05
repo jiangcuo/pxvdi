@@ -1,5 +1,18 @@
 # PXVDI 安装
 
+## 了解PXVDI 总控模式组件
+
+
+| 组件 | 说明 | 发行方式|安装位置 |安装教程 |
+|------|------|----|-------------|------------|
+| **PXVIRT** | 虚拟化底层，运行所有虚拟机(必须安装) |系统iso| 物理机 |[pxvirt](https://docs.pxvirt.lierfang.com)|
+| **PXVDI Server** | VDI管理服务端，管理桌面池和用户(必须安装) | deb包 | 虚拟机 |本页|
+| **PXVDI HTML5** | HTML5客户端/安全网关，可部署于DMZ (如果需要外外网或者浏览器访问安装)| 二进制文件 |虚拟机|[PXVDI HTML5 客户端](../client/html5.md)|
+| **PXVDI Stream** | 自研的连接协议，带有远程和集中控制的功能，和向日葵一样的形式，被控端(必须安装) | exe或者appimage| 虚拟机或者需要被连接的物理机 |[虚拟机开启PXVDIStream连接功能](../zong-kong-mo-shi/vm/pxvdistreamvm.md)|
+| **PXVDI 客户端** | 客户端程序 (可选)| exe或者appimage| 需要连接的终端 |[客户端使用说明](../client/Usage.md)|
+| **PXVDI 瘦客户端** | 瘦客户端程序(可选) |  appimage| 低性能的瘦终端 |[瘦客户端使用说明](../client/ThinOS.md)|
+
+
 ## 配置PXVIRT主机
 
 PXVIRT是梨儿方针对Proxmox VE 二次开发的虚拟化底层。PXVIRT是PXVDI的基础。所有的虚拟机均运行在PXVIRT上，类似于VMware Horizon的虚拟机运行在vsphere上一样！
@@ -51,7 +64,6 @@ create user 'lierfang'@'%'  identified by 'P@SSw0rd';
 # 授予 lierfang 所有权限
 GRANT ALL PRIVILEGES ON *.* to 'lierfang'@'%';
 ```
-
 
 ## 安装主程序
 
