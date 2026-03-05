@@ -16,7 +16,6 @@ Spice组件在virtio-win 驱动中已经集成
 
 ## 添加SPICE 声音重定向
 
-
 在虚拟机详情页添加声卡，设备选择ich9-intel-hda 后端选择spice
 
 

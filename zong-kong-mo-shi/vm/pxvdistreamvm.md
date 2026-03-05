@@ -18,6 +18,13 @@ PXVDIStream原生支持外网映射，通过部署我们的PXVDI HTML5组件 即
 
 声音部分需要用户在后台中添加一个声卡，选择spice或者none，或者在系统中创建虚拟声卡！否则将没有声音！
 
+### 进程模型
+在进程模型中！PXVDIStream支持双进程模式，针对Linux和Windows，PXVDIstream做为系统服务，常驻内存。
+
+当收到连接请求时，PXVDIstream会fork出一个子进程，子进程负责处理连接请求，PXVDIstream则负责处理其他请求，比如新连接或者和PXVDI server通信。
+
+用户断开连接，这个子进程会自动退出。
+
 ## 注意！
 
 PXVDIStream是一个依赖硬件编码的协议，如果虚拟机内部没有硬件编码器，那么编码任务会全部由CPU承担，在1080@60的场景中，约会消耗2个CPU的性能（以e5-2670v4为基准）。如果由vGPU设备承担编码，则会降低至0.2-0.4个CPU（以e5-2670v4为基准）的使用率！
@@ -181,45 +188,12 @@ chmod +x pxvdistream-1.0.0-common_x86_64.AppImage
 mv pxvdistream-1.0.0-common_x86_64.AppImage /usr/bin/pxvdistream
 ```
 
+执行安装
+```
+pxvdistream install
+```
+
 ### 以drm方式捕获
-
-创建systemd服务
-```
-cat > /etc/systemd/system/pxvdistream.service  << EOF
-[Unit]
-Description=PXVDIStream Virtual Desktop Streaming
-StartLimitIntervalSec=500
-StartLimitBurst=5
-After=network.target multi-user.target
-
-[Service]
-Type=simple
-User=root
-Group=root
-ExecStart=/usr/bin/pxvdistream
-Restart=on-failure
-RestartSec=5s
-
-StandardOutput=journal
-StandardError=journal
-SyslogIdentifier=pxvdistream
-
-
-[Install]
-WantedBy=multi-user.target
-
-EOF
-```
-
-随后设置开机启动
-
-```
-systemctl daemon-reload
-systemctl enable pxvdistream
-systemctl start pxvdistream
-```
-
-修改配置文件指定api server 地址
 
 配置文件在用户的主目录下，`~/.lierfang/pxvdistream.conf`
 
@@ -227,88 +201,24 @@ systemctl start pxvdistream
 
 ```
 apiserver=192.168.1.250:3002
+display-mode=drm
 ```
 
-修改之后，重启以下虚拟机，即可生效
+修改之后，重启一下虚拟机，即可生效
 
 
 ### 以x11 用户模式捕获
 
-注意，以下命令请在用户登录的图形环境中操作，不要在ssh中操作
-
-创建systemd服务
-
-
-```
-sudo bash -c "cat > /etc/systemd/system/add-dmi-permission.service"  << EOF
-[Unit]
-Description=Set DMI file permissions
-After=sysinit.target local-fs.target
-Before=pxvdistream.service
-
-[Service]
-Type=oneshot
-ExecStart=/bin/sh -c 'chmod 444 /sys/devices/virtual/dmi/id/* 2>/dev/null || true'
-RemainAfterExit=yes
-
-[Install]
-WantedBy=multi-user.target
-
-EOF
-```
-sudo systemctl daemon-reload
-sudo systemctl enable add-dmi-permission.service
-
-创建pxvdistream服务
-```
-sudo bash -c "cat > /etc/systemd/user/pxvdistream.service"  << EOF
-[Unit]
-Description=PXVDIStream Virtual Desktop Streaming
-StartLimitIntervalSec=500
-StartLimitBurst=5
-After=graphical-session.target
-
-[Service]
-Type=simple
-ExecStart=/usr/bin/pxvdistream
-Restart=on-failure
-RestartSec=5s
-
-StandardOutput=journal
-StandardError=journal
-SyslogIdentifier=pxvdistream
-
-
-[Install]
-WantedBy=graphical-session.target
-
-EOF
-```
-
-将当前用户添加到input组(把lucas替换成用户名)
-sudo usermod -a -G input lucas
-
-修改udev权限，使用户组能够使用uinput
-```
-echo 'KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"' | \
-sudo tee /etc/udev/rules.d/85-pxvdistream-input.rules
-
-systemctl --user enable pxvdistream
-systemctl --user start pxvdistream
-```
-
-修改配置文件指定api server 地址 和 设置x11捕获
-
 配置文件在用户的主目录下，`~/.lierfang/pxvdistream.conf`
 
 和Windows一致
 
 ```
 apiserver=192.168.1.250:3002
-x11=true
+display-mode=x11
 ```
 
-修改之后，重启以下虚拟机，即可生效
+修改之后，重启一下虚拟机，即可生效
 
 ## 使用容器——以Linux 无头模式部署
 
@@ -367,7 +277,7 @@ PXVDIStream 通过SPICE完成USB重定向，如果要实现USB重定向，需要
 
 ## 直连模式
 
-PXVDIStream 也支持直连模式，通过pxvdistreamclient直接连接到pxvdistream server.pxvdistreamclient 位于 pxvdi 同样的目录当中！
+PXVDIStream 也支持直连模式，通过pxvdistreamclient直接连接到pxvdistream server。 pxvdistreamclient 位于 pxvdi 同样的目录当中！
 
 请在配置文件中加入
 ```
@@ -379,3 +289,7 @@ password=123456
 使用pxvdistreamcient --address youip --username admin --password 123456 即可连接。
 
 额外的参数 --fps 60|120|144  --bitreate 10|20|50（码率单位为M）
+
+## 额外的参数
+
+管理员可以执行命令 `pxvdistream --help` 查看所有参数
