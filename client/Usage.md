@@ -4,46 +4,8 @@
 
 ### 1.1 主程序安装
 
-#### Windows
+前往官网下载对应的客户端
 
-下载客户端之后，运行exe，程序之后会被安装到"C:\Program Files(x86)\lierfang\Pxvdi"
-
-
-#### Linux OS
-
-根据客户端的cpu架构，下载对应的版本。
-
-
-```
-wget https://mirrors.lierfang.com/pxcloud/pxvdi/Client/linux/pxvdi_latest_amd64.AppImage
-OR
-curl -L -O https://mirrors.lierfang.com/pxcloud/pxvdi/Client/linux/pxvdi_latest_amd64.AppImage
-```
-
-授予权限并执行
-
-```
-chmod +x pxvdi_latest_amd64.AppImage
-./pxvdi_latest_amd64.AppImage
-```
-
-
-<!-- #### Debian OS
-
-我们基于debian构建了安装包，可以直接使用debian进行安装，并且会自动下载组件
-```
-wget https://download.lierfang.com/pxvdi/Client/linux/pxvdi_3.0.1_debian12_amd64.deb
-apt update
-apt install -f ./pxvdi_3.0.1_debian12_amd64.deb
-``` -->
-
-#### MacOS 仅支持apple soc
-
-下载客户端，直接打开dmg文件
-
-https://mirrors.lierfang.com/pxcloud/pxvdi/Client/macos/pxvdi-latest.dmg
-
-将程序拖动到应用程序中
 
 ### 1.2 组件安装
 
@@ -62,25 +24,16 @@ archlinux
 pacman -S freerdp virt-viewer
 ```
 
-macos
+macos的rdp组件已经内置，无需安装rdp，只需要安装virt-viewer即可（如果需要使用spice协议）
 ```
 brew install virt-viewer
 ```
-### 1.3 Linux上与glibc兼容性
-- GLIBC_2.3
-- GLIBC_2.35
-- GLIBC_2.27
-- GLIBC_2.2.5
-- GLIBC_2.29
-- GLIBC_2.11
-- GLIBC_2.14
-- GLIBC_2.32
-- GLIBC_2.34
-- GLIBC_2.4
-- GLIBC_2.3.4
-- GLIBC_2.7
-- GLIBC_2.33
 
+windows的rdp组件已经内置，无需安装rdp，只需要安装virt-viewer即可（如果需要使用spice协议）
+
+点击下面链接下载
+
+https://mirrors.lierfang.com/pxcloud/pxvdi/Extra/virt-viewer/virt-viewer-x86-10.0-1.0.msi
 
 ## 2. 使用说明
 
@@ -152,6 +105,7 @@ brew install virt-viewer
 - 全屏模式 全屏启动
 - 自动登录 打开程序之后，自动登录
 - mac模式 使用mac地址登录模式
+- usb自动重定向 启动连接的时候自动重定向支持的usb设备（不包含键鼠）
 - Moonlight 设置
   - 编码器 moonlight的视频流编码器
   - 解码器 moonlight的视频流解码器
@@ -200,7 +154,12 @@ brew install virt-viewer
 
 ## 4. Pxvdistream SDL客户端使用
 
-Pxvdistream SDL客户端 是一个支持完整硬件解码的客户端，延迟比主程序低很多，且开销小，推荐默认使用该客户端！
+Pxvdistream client SDL客户端 是一个支持完整硬件解码的客户端，延迟比主程序低很多，且开销小，推荐默认使用该客户端！
+
+SDL客户端可以单独下载，下载地址如下：
+
+https://mirrors.lierfang.com/pxcloud/pxvdi/PxvdiStream/
+
 
 SDL客户端具有以下快捷键
 
@@ -215,5 +174,10 @@ SDL客户端具有以下快捷键
 安全键盘是针对Ukey设备重定向之后，需要使用物理键盘才能输入的场景！安全键盘会将按键使用物理键盘方式进行发送！从而让ukey认为是一个安全的环境！
 
 
+## 5. Windows RDP 客户端使用
+
+`ctrl + alt + shift + s`: 显示或者隐藏悬浮菜单
+
+其余直接参考工具栏文本即可
 
 

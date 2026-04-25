@@ -59,9 +59,49 @@ export default defineConfig({
         text: 'PXVDI For PXVIRT 总控模式',
         items: [
            { text: '介绍', link: 'zong-kong-mo-shi'},
-           { text: '安装', link: 'zong-kong-mo-shi/install' },
            { text: '激活产品', link: 'zong-kong-mo-shi/license'},
-           { text: '虚拟机管理', link: 'zong-kong-mo-shi/vm',
+           { text: '管理系统介绍', link: 'zong-kong-mo-shi/web',items: [
+              { text: '安装', link: 'zong-kong-mo-shi/web/install' },
+              { text: '登录页面',link: 'zong-kong-mo-shi/web/login' },
+              { text: '主页',link: 'zong-kong-mo-shi/web/home' },
+              { text: '虚拟机管理',link: 'zong-kong-mo-shi/web/vm' , 
+                items: [
+                  { text: '桌面管理', link: 'zong-kong-mo-shi/web/vmmgr' },
+                  { text: '虚拟机详情', link: 'zong-kong-mo-shi/web/vmdetail' },
+                  { text: 'PVE模版管理', link: 'zong-kong-mo-shi/web/vm-pve-template' },
+                  { text: 'PXVDI模版管理', link: 'zong-kong-mo-shi/web/vm-pxvdi-template' },
+                  { text: '备份管理', link: 'zong-kong-mo-shi/web/vm-backup' },
+                ]
+              },
+              { text: '桌面池模块', link: 'zong-kong-mo-shi/web/deskpool',
+                items: [
+                  { text: '用户管理', link: 'zong-kong-mo-shi/web/user'},
+                  { text: '桌面池管理', link: 'zong-kong-mo-shi/web/pool' },
+                  { text: '网关管理', link: 'zong-kong-mo-shi/web/gateway' },
+                  { text: '域管理', link: 'zong-kong-mo-shi/web/domain' },
+                  { text: '外部桌面', link: 'zong-kong-mo-shi/web/external-desktop' },
+                  { text: '桌面状态', link: 'zong-kong-mo-shi/web/desktop-status' },
+                ]
+              },
+              { text: '集群模块', link: 'zong-kong-mo-shi/web/cluster',
+                items: [
+                  { text: '集群概览', link: 'zong-kong-mo-shi/web/cluster-overview' },
+                  { text: '节点管理', link: 'zong-kong-mo-shi/web/node' },
+                  { text: '存储管理', link: 'zong-kong-mo-shi/web/storage' },
+                ]
+              },
+              { text: '运维模块', link: 'zong-kong-mo-shi/web/operation',
+                items: [
+                  { text: '系统摘要', link: 'zong-kong-mo-shi/web/system-overview' },
+                  { text: '用户日志', link: 'zong-kong-mo-shi/web/user-log' },
+                  { text: '集群日志', link: 'zong-kong-mo-shi/web/cluster-log' },
+                  { text: '平台配置', link: 'zong-kong-mo-shi/web/platform-config' },
+                  { text: '客户端管理', link: 'zong-kong-mo-shi/web/client-manage' },
+                ]
+              },
+            ]
+          },
+           { text: '连接到虚拟机', link: 'zong-kong-mo-shi/vm',
             items: [
               { text: '认识多种连接方式',link: 'lian-jie-xie-yi' },
               { text: '创建虚拟机', link: 'zong-kong-mo-shi/vm/createvm' },
@@ -74,41 +114,7 @@ export default defineConfig({
 
             ]
            },
-           { text: '桌面池管理', link: 'zong-kong-mo-shi/pool',
-            items: [
-              { text: '普通桌面池', link: 'zong-kong-mo-shi/pool/normalpool' },
-              { text: '快照桌面池', link: 'zong-kong-mo-shi/pool/snapshotpool' }
-            ]
-           },
-           { text: '网关管理', link: 'zong-kong-mo-shi/gw',
-            items: [
-              { text: 'msrdp网关', link: 'zong-kong-mo-shi/gw/msrdpgw' },
-              { text: 'rdpGW网关', link: 'zong-kong-mo-shi/gw/rdpgw' }
-            ]
-           },
-           { text: '用户管理', link: 'zong-kong-mo-shi/user',
-            items: [
-
-              { text: '添加用户', link: 'zong-kong-mo-shi/user/adduser' },
-            ]
-            },
-           { text: '域管理', link: 'zong-kong-mo-shi/user/ad',
-            items:[
-              { text: '创建域',link: 'zong-kong-mo-shi/user/aduser/createad'},
-              { text: '添加域',link: 'zong-kong-mo-shi/user/aduser/addad'},
-            ]
-            },
-           { text: '节点管理', link: 'zong-kong-mo-shi/node' },
-           { text: '存储管理', link: 'zong-kong-mo-shi/storage' },
-           { text: '日志', link: 'zong-kong-mo-shi/log',
-            items:[
-              { text: '用户日志',link: 'zong-kong-mo-shi/log/user'},
-              { text: '集群日志',link: 'zong-kong-mo-shi/log/cluster'},
-            ]
-            },
-           { text: '平台配置', link: 'zong-kong-mo-shi/platform' },
-           { text: '客户端管理', link: 'zong-kong-mo-shi/client' },
-           { text: '外部桌面管理', link: 'zong-kong-mo-shi/extenddesk' },
+          
            { text: '部署案例', link: 'zong-kong-mo-shi/deploy/index' ,
             items:[
               { text: '日常桌面',link: 'zong-kong-mo-shi/deploy/normal'},
@@ -191,5 +197,4 @@ export default defineConfig({
     ]
   ]
 })
-
 

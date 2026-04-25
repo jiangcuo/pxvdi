@@ -21,3 +21,24 @@
 ![alt text](../../img/rdpvm3.png)
 
 接下来一直下一步即可。
+
+## Linux 虚拟机
+
+如debian-13 ，请直接运行命令
+
+```bash
+sudo apt update
+sudo apt install xrdp qemu-guest-agent -y
+sudo systemctl enable xrdp
+sudo systemctl start xrdp
+sudo systemctl enable qemu-guest-agent
+sudo systemctl start qemu-guest-agent
+```
+
+安装好xrdp即可！
+
+如果是Ubuntu系统，直接使用gnome的远程桌面功能即可，无需安装xrdp。
+
+
+不建议使用gnome桌面！
+

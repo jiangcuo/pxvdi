@@ -11,7 +11,6 @@ Linux: arm64/amd64/riscv64/loongarch64
 瘦客户端仅提供基于debian13的deb包，集成到瘦客户端系统中，如果需要单独下载，可前往[镜像目录](https://mirrors.lierfang.com/pxcloud/pxvdi/dists/trixie/main/)下载。
 
 
-
 ## 瘦客户端配置
 
 主程序路径: `/opt/com.lierfang.pxvdi/pxvdi-thin-client`
