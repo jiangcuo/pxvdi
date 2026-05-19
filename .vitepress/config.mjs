@@ -99,6 +99,13 @@ export default defineConfig({
                   { text: '客户端管理', link: 'zong-kong-mo-shi/web/client-manage' },
                 ]
               },
+              { text: '机房模式', link: 'zong-kong-mo-shi/web/terminal',
+                items: [
+                  { text: '机房管理', link: 'zong-kong-mo-shi/web/serverroom' },
+                  { text: '终端管理', link: 'zong-kong-mo-shi/web/terminalmgr' },
+                  { text: '教学桌面池', link: 'zong-kong-mo-shi/web/sdupool' },
+                ]
+              },
             ]
           },
            { text: '连接到虚拟机', link: 'zong-kong-mo-shi/vm',
@@ -148,6 +155,7 @@ export default defineConfig({
             items: [
               { text: '服务端', link: 'history/server'},
               { text: '客户端', link: 'history/client' },
+              { text: '瘦客户端系统', link: 'history/thinclient-gtk' },
               { text: 'PxvdiSteam', link: 'history/pxvdistream' },
               { text: '网页版', link: 'history/html5' },
            ]
