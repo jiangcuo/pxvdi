@@ -2,6 +2,9 @@
 
 集群概览用于从整体视角查看 PXVIRT 集群的运行情况，
 
+![alt text](../../img/cluster-overview.png)
+
+
 ### 基础信息
 
 通常包括：

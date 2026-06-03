@@ -28,23 +28,27 @@ export default defineConfig({
     search: {
       provider: 'local'
     },
+    outline: {
+      level: [2, 4],
+      label: '本页目录'
+    },
     sidebar: [
       
-      {
-        text: '介绍',
-        link: ''
-      },
-      {
-        text: 'PXVDI For Hyper-V',
-        items: [
-           { text: '介绍', link: 'pxvdi-for-hyper-v/README'},
-           { text: '安装', link: 'pxvdi-for-hyper-v/install' },
-           { text: '系统管理', link: 'pxvdi-for-hyper-v/system' },
-           { text: '策略管理', link: 'pxvdi-for-hyper-v/limit' },
-           { text: '客户端使用', link: 'pxvdi-for-hyper-v/client' },
-           { text: '更新日志', link: 'pxvdi-for-hyper-v/history' }
-        ]
-      },
+      // {
+      //   text: '介绍',
+      //   link: ''
+      // },
+      // {
+      //   text: 'PXVDI For Hyper-V',
+      //   items: [
+      //      { text: '介绍', link: 'pxvdi-for-hyper-v/README'},
+      //      { text: '安装', link: 'pxvdi-for-hyper-v/install' },
+      //      { text: '系统管理', link: 'pxvdi-for-hyper-v/system' },
+      //      { text: '策略管理', link: 'pxvdi-for-hyper-v/limit' },
+      //      { text: '客户端使用', link: 'pxvdi-for-hyper-v/client' },
+      //      { text: '更新日志', link: 'pxvdi-for-hyper-v/history' }
+      //   ]
+      // },
 
       // {
       //   text: 'PXVDI For Proxmox 直连模式',
@@ -129,8 +133,6 @@ export default defineConfig({
               { text: 'GPU桌面',link: 'zong-kong-mo-shi/deploy/gpu'},
               { text: '外网体验',link: 'zong-kong-mo-shi/deploy/nat'},
               { text: '与域集成',link: 'zong-kong-mo-shi/deploy/ad'},
-              { text: '剪切板控制',link: 'zong-kong-mo-shi/deploy/clipboard'},
-              { text: '瘦客户端性能优化',link: 'zong-kong-mo-shi/deploy/thinclient'}
             ]
            },
            { text: '常见问题', link: 'zong-kong-mo-shi/issue/index' },
