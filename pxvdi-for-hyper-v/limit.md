@@ -9,7 +9,7 @@
 
 平台会默认创建多个策略，你可以自己删除或者修改，添加都可以。
 
-![alt text](/img/hycl1.png)
+![alt text](../img/hycl1.png)
 
 点击`设置全局`就可以把这条策略应用到全局，除了admin用户，其他都能作用。
 
@@ -20,20 +20,20 @@
 
 例如我允许一个30天的用户
 
-![alt text](/img/hycl2.png)
+![alt text](../img/hycl2.png)
 
 
 ## 应用策略
 
 选中一个用户，点击策略设置，
 
-![alt text](/img/hycl3.png)
+![alt text](../img/hycl3.png)
 
 选择刚才`30天用户`即可
 
-![alt text](/img/hycl4.png)
+![alt text](../img/hycl4.png)
 
 
 最后在用户列表中可以查看到策略
 
-![alt text](/img/hycl5.png)
+![alt text](../img/hycl5.png)

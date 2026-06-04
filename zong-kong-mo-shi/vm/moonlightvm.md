@@ -33,7 +33,7 @@ apiserver = 10.13.16.249:3002
 
 Windows是zip，请解压zip文件，确保文件夹名为`Moonlight`,移动到C盘`C:\Program Files\`下面。一定要路径正确。如下
 
-![](/img/moonlight.png)
+![](../../img/moonlight.png)
 
 
 如果是Macos客户端，直接拖到应用程序中即可。

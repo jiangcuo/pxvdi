@@ -63,6 +63,8 @@ export default defineConfig({
         text: 'PXVDI For PXVIRT 总控模式',
         items: [
            { text: '介绍', link: 'zong-kong-mo-shi'},
+           { text: '产品优势', link: 'zong-kong-mo-shi/advantage'},
+           { text: '信创与国产化', link: 'zong-kong-mo-shi/xinchuang'},
            { text: '激活产品', link: 'zong-kong-mo-shi/license'},
            { text: '管理系统介绍', link: 'zong-kong-mo-shi/web',items: [
               { text: '安装', link: 'zong-kong-mo-shi/web/install' },
