@@ -9,7 +9,7 @@
 正式安装前，建议逐项核对：
 
 - PXVIRT 已经安装完成。
-- 已准备一台 Debian(12或者13版本)或者openeuler 24版本 主机或虚拟机安装 PXVDI Server。
+- 已准备一台 Debian(12或者13版本)或者openeuler 24版本 主机或虚拟机安装 PXVDI Server。也可以使用我们[预构建的镜像](../pxvdiserver-img.md)
 - 已准备数据库地址、端口、账号和密码（可选）。
 - 浏览器可以访问 PXVDI Server 监听的 `3002` 端口。
 - PXVDI Server所在的网络可以访问 PXVIRT 管理地址。
