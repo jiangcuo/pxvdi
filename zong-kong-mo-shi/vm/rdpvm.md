@@ -1,5 +1,10 @@
 虚拟机开启RDP功能
 
+## 虚拟机配置
+1. 在虚拟机的配置选项中，启用qemu-guest-agent
+2. 在虚拟机中安装好qemu-guest-agent驱动
+
+
 ## Windows 虚拟机
 
 打开系统属性选项卡的 远程。

@@ -114,7 +114,24 @@
 
 此时虚拟机的安装完成。对于虚拟机如何配置，请参考其他内容
 
-如果没有意外，虚拟机详情页可以显示虚拟机的ip.
+如果没有意外，虚拟机详情页可以显示虚拟机的ip。只有显示虚拟机ip，才算正常配置
 
 ![alt text](../../img/servercreatevm20.png)
 
+
+## Windows7 和xp
+Windows7 和xp 基本已经淘汰，如果有特殊要求，请参考下面步骤进行
+
+###  XP版本
+
+参考本视频
+
+https://www.bilibili.com/video/BV1ik4y117wW/?p=5&vd_source=af414869521c5e7df7b68df66f6d6b96
+
+### Windows7 
+
+请下载本驱动进行安装，https://cn.mirrors.lierfang.com/pxcloud/pxvirt/virtio-win/virtio-win-0.1.173.iso
+
+参考视频
+
+https://www.bilibili.com/video/BV1ik4y117wW?vd_source=af414869521c5e7df7b68df66f6d6b96&p=3&spm_id_from=333.788.videopod.episodes

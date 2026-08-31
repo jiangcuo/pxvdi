@@ -9,7 +9,7 @@
 正式安装前，建议逐项核对：
 
 - PXVIRT 已经安装完成。
-- 已准备一台 Debian(12或者13版本)或者openeuler 24版本 主机或虚拟机安装 PXVDI Server。也可以使用我们[预构建的镜像](../pxvdiserver-img.md)
+- 已准备一台 Debian(12或者13版本)或者openeuler 24版本 主机或虚拟机安装 PXVDI Server。最低配置为2核4G内存16G磁盘。也可以使用我们[预构建的镜像](../pxvdiserver-img.md)
 - 已准备数据库地址、端口、账号和密码（可选）。
 - 浏览器可以访问 PXVDI Server 监听的 `3002` 端口。
 - PXVDI Server所在的网络可以访问 PXVIRT 管理地址。
@@ -20,7 +20,7 @@
 | --- | --- | --- | --- |--- |
 | PXVIRT | 提供底层虚拟化能力 | 必须 | 物理服务器 |所有虚拟机和集群资源的底座 |
 | PXVDI Server | 提供 Web 管理平台和交付逻辑 | 必须 | 虚拟机 |当前这套管理系统 |
-| MySQL | 提供平台数据库 | 必须 | 虚拟机，可和PXVDI Server一起 | 初始化时要连接 |
+| MySQL | 提供平台数据库 | 按需 | 虚拟机，可和PXVDI Server一起 | 初始化时要连接 |
 | PXVDI HTML5 | 提供浏览器接入能力 | 按需 | 虚拟机| 需要浏览器访问桌面时部署 |
 | PXVDI Stream | 提供自研远控和集中控制能力 | 按需 | 被远程访问的虚拟机| 需要远控或集中控制时使用 |
 | PXVDI 客户端 / 瘦终端 | 供终端用户接入桌面 | 按需 | 终端设备| 视终端接入方式而定 |
@@ -29,7 +29,11 @@
 ## 第一步：安装数据库(可选)
 
 
-PXVDI Server 支持2种数据库类型，一种是mysql类型，一种是内置的数据库，如果想使用mysql，可以参考下面流程。
+PXVDI Server 支持2种数据库类型，一种是mysql类型，一种是内置的数据库。
+
+两者在性能上没有显著区别，我们推荐新装用户使用内置的数据库。
+
+如果想使用mysql，可以参考下面流程，如果不使用mysql，直接跳至第二步。
 
 ### 安装数据库
 
@@ -69,14 +73,14 @@ FLUSH PRIVILEGES;
 
 | 文件名 | 架构 | 适用处理器示例 | 适用系统 |
 | --- | --- | --- | --- |
-| `pxvdiserver_latest_amd64.deb` | x86 / c86 | Intel、AMD 处理器 | Debian 系列 |
-| `pxvdiserver_latest_arm64.deb` | arm64 | 鲲鹏、飞腾处理器 | Debian 系列 |
-| `pxvdiserver_latest_loong64.deb` | loongarch64 | 龙芯 3C5000 处理器 | Debian 系列 |
-| `pxvdiserver_latest_riscv64.deb` | riscv64| riscv64系列机器 | Debian 系列 |
-| `pxvdiserver_latest_amd64.rpm` | x86 / c86 | Intel、AMD 处理器 | RHEL 系列（如 openEuler） |
-| `pxvdiserver_latest_arm64.rpm` | arm64 | 鲲鹏、飞腾处理器 | RHEL 系列（如 openEuler） |
-| `pxvdiserver_latest_loong64.rpm` | loongarch64 | 龙芯 3C5000 处理器 | RHEL 系列（如 openEuler） |
-| `pxvdiserver_latest_riscv64.rpm` | riscv64| riscv64系列机器 | RHEL 系列（如 openEuler）  |
+| `pxvdiserver_latest_amd64.deb` | x86 / c86 | Intel、AMD 处理器 | Debian  ubuntu 系列 |
+| `pxvdiserver_latest_arm64.deb` | arm64 | 鲲鹏、飞腾处理器 | Debian ubuntu 系列 |
+| `pxvdiserver_latest_loong64.deb` | loongarch64 | 龙芯 3C5000 处理器 | Debian  ubuntu 系列 |
+| `pxvdiserver_latest_riscv64.deb` | riscv64| riscv64系列机器 | Debian  ubuntu  系列 |
+| `pxvdiserver_latest_amd64.rpm` | x86 / c86 | Intel、AMD 处理器 | RHEL openeuler centos系列 |
+| `pxvdiserver_latest_arm64.rpm` | arm64 | 鲲鹏、飞腾处理器 |  RHEL openeuler centos系列  |
+| `pxvdiserver_latest_loong64.rpm` | loongarch64 | 龙芯 3C5000 处理器 |  RHEL openeuler centos系列  |
+| `pxvdiserver_latest_riscv64.rpm` | riscv64| riscv64系列机器 | RHEL openeuler centos系列 |
 
 
 把安装包（可以通过scp上传，或者通过wget直接在服务器上完成下载）上传到 Debian 主机后执行：
@@ -123,8 +127,6 @@ https://服务器地址:3002
 
 进入初始化页面后，第一步通常是填写数据库信息。 
 
-可选内置数据库，下面是mysql数据库。从性能上，2者没有什么区别。而内置数据库更加轻量
-
 ### mysql字段说明(仅选择mysql数据使用)
 
 | 字段 | 含义 | 推荐值 / 示例 | 注意事项 |
@@ -144,8 +146,8 @@ https://服务器地址:3002
 
 | 字段 | 含义 | 推荐值 / 示例 | 注意事项 |
 | --- | --- | --- | --- |
-| PXVIRT 主机地址 | 要对接的 PXVIRT 管理地址 | `10.10.10.10` | 一般不需要写路径 |
-| PXVIRT 管理账号 | 平台连接 PXVIRT 的账号 | `root@pam` | 初始化阶段最常见 |
+| PXVIRT 主机地址 | 要对接的 PXVIRT |PVE管理地址 | `10.10.10.10` | 一般不需要写路径 |
+| PXVIRT 管理账号 | 平台连接 PXVIRT |PVE的账号 | `root@pam` | 初始化阶段最常见 |
 | PXVIRT 管理密码 | 上述账号对应的密码 | 实际密码 | 填写错误会导致对接失败 |
 
 
@@ -159,3 +161,5 @@ https://服务器地址:3002
 - 密码：`P@SSw0rd`
 
 ![alt text](../../img/install-new-3.png)
+
+进入系统之后，可去主页顶部用户图标处，修改默认密码！

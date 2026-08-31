@@ -14,7 +14,7 @@ PXVDIStream原生支持外网映射，通过部署我们的PXVDI HTML5组件 即
 在Windows上我们使用dxgi进行屏幕捕获，
 在Linux上，我们支持x11 和drm捕获，默认以root权限进行drm捕获。
 
-最后通过gstreamer 进行编码使用硬件编码或者x264进行编码串流
+最后通过gstreamer 进行编码使用硬件编码或者openh264进行编码串流
 
 声音部分需要用户在后台中添加一个声卡，选择spice或者none，或者在系统中创建虚拟声卡！否则将没有声音！
 
