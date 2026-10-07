@@ -1,9 +1,21 @@
+<script setup>
+import exampleShot1 from '../../img/vm-new-1.png'
+import exampleShot2 from '../../img/vm-new-3.png'
+import exampleShot3 from '../../img/vm-new-2.png'
+</script>
+
 # 桌面详情
 
 桌面详情用于查看和修改单台虚拟机的完整配置，是日常运维最核心的页面之一。
 
-![alt text](../../img/vm-new-1.png)
-
+<DocScreenshot
+  :src="exampleShot1"
+  alt="桌面详情操作示例，第 1 图"
+  caption="图 1：桌面详情操作示例。"
+  variant="full"
+  :width="2498"
+  :height="1172"
+/>
 这里包含4个tab菜单
 
 
@@ -11,9 +23,14 @@
 
 点击`远程连接`后系统会打开 VNC 页面，常用于安装系统、排查启动问题等场景。
 
-![alt text](../../img/vm-new-3.png)
-
-
+<DocScreenshot
+  :src="exampleShot2"
+  alt="远程连接操作示例，第 2 图"
+  caption="图 2：远程连接操作示例。"
+  variant="full"
+  :width="2526"
+  :height="1514"
+/>
 ## 电源操作
 
 | 操作 | 说明 |
@@ -69,8 +86,14 @@
 
 显示虚拟机的基本状态和资源使用情况，包括 CPU / 内存 / 磁盘 / 网络，以及虚拟机内部 IP。
 
-![alt text](../../img/vm-new-2.png)
-
+<DocScreenshot
+  :src="exampleShot3"
+  alt="概览页操作示例，第 3 图"
+  caption="图 3：概览页操作示例。"
+  variant="full"
+  :width="1940"
+  :height="626"
+/>
 如果看不到内部 IP，这会导致客户端连接失败，原因一般是 qemu-guest-agent 未安装或未启动，确认虚拟机内驱动已全部装好。
 
 

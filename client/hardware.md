@@ -25,12 +25,6 @@
 |pxvdistream|aarch64|1080@60|linux|4核A55(rk3568)||
 |pxvdistream|loongarch64|1080@60|linux|3k3000||
 |pxvdistream|loongarch64|4k@60|linux|3k3000||
-|horizon|x86_64|1080@60|windows|j1800+||
-|horizon|x86_64|1080@60|linux|j1800+||
-|horizon|x86_64|2k@60|windows|j1800+||
-|horizon|x86_64|2k@60|linux|j1800+||
-|horizon|x86_64|4k@60|windows|j4125+||
-|horizon|x86_64|4k@60|linux|j4125+||
 
 备注
 

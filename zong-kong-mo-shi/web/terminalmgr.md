@@ -1,45 +1,59 @@
+<script setup>
+import exampleShot1 from '../../img/terminal-1.png'
+import exampleShot2 from '../../img/terminal-2.png'
+import exampleShot3 from '../../img/terminal-3.png'
+import exampleShot4 from '../../img/terminal-4.png'
+</script>
+
 # 终端管理
 
 ## 如何启用终端管理
 
-### 1. 安装pxvdistream服务
+### 1. 准备终端服务
 
-终端管理和我们的pxvdistream复用。pxvdistream已在瘦客户机系统中内置。
+瘦客户端系统通常已内置 PXVDIStream。确认终端服务已运行，并将其接入实际 PXVDI Server。
 
-在瘦客户端系统中，直接运行下面命令，安装pxvdistream服务
-```bash
-pxvdistream install
-```
+服务安装、配置文件位置、apiserver 格式与重启方法统一见[安装与配置 Agent](../../pxvdistream/install.md)。已内置服务的终端按需完成配置，随后进行 MAC 注册与机房关联。
 
-随后编辑配置文件
-```bash
-nano ~/.lierfang/pxvdistream.conf
-```
-
-修改apiserver 为pxvdiserver的地址，例如：
-```
-apiserver=https://10.13.14.4:3002
-```
-
-随后重启服务
-```bash
-systemctl restart pxvdistream
-```
-
-### 2. 在瘦客户端中注册mac用户
+### 2. 注册 MAC 用户
 
 瘦客户端设置中启用mac模式，返回到主页，进行注册。请准确输入
 
-![alt text](../../img/terminal-1.png)
+<DocScreenshot
+  :src="exampleShot1"
+  alt="MAC 用户注册操作示例，第 1 图"
+  caption="图 1：MAC 用户注册操作示例。"
+  variant="settings"
+  :width="838"
+  :height="610"
+/>
+注册成功后，可以在管理系统的 **用户 → 用户管理 → 用户注册** 中审核申请；通过后检查用户状态，再继续添加终端
 
-注册成功后，可以在pxvdiserver的后台->桌面池->用户管理->用户审核中，同意用户
+<DocScreenshot
+  :src="exampleShot2"
+  alt="MAC 用户注册操作示例，第 2 图"
+  caption="图 2：MAC 用户注册操作示例。"
+  variant="full"
+  :width="2384"
+  :height="702"
+/>
+### 3. 在机房中添加终端
 
-![alt text](../../img/terminal-2.png)
-
-### 3. 在机房管理中添加终端
-
-![alt text](../../img/terminal-3.png)
-
+<DocScreenshot
+  :src="exampleShot3"
+  alt="机房添加终端操作示例，第 3 图"
+  caption="图 3：机房添加终端操作示例。"
+  variant="full"
+  :width="1102"
+  :height="1198"
+/>
 此时就可以操作终端了
 
-![alt text](../../img/terminal-4.png)
+<DocScreenshot
+  :src="exampleShot4"
+  alt="机房添加终端操作示例，第 4 图"
+  caption="图 4：机房添加终端操作示例。"
+  variant="full"
+  :width="2580"
+  :height="1066"
+/>

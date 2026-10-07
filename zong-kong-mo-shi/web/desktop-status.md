@@ -1,3 +1,7 @@
+<script setup>
+import exampleShot1 from '../../img/deskstatus1.png'
+</script>
+
 # 桌面状态
 
 
@@ -9,8 +13,14 @@
 
 对于在线桌面，可以进行操作，比如文件部署，
 
-![alt text](../../img/deskstatus1.png)
-
+<DocScreenshot
+  :src="exampleShot1"
+  alt="桌面状态操作示例，第 1 图"
+  caption="图 1：桌面状态操作示例。"
+  variant="full"
+  :width="2316"
+  :height="542"
+/>
 包括这些功能
 
 - 发送消息弹窗

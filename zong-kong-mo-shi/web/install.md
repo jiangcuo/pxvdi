@@ -1,3 +1,9 @@
+<script setup>
+import exampleShot1 from '../../img/install-new-1.png'
+import exampleShot2 from '../../img/install-new-2.png'
+import exampleShot3 from '../../img/install-new-3.png'
+</script>
+
 # PXVDI 安装
 
 本页说明 PXVDI 总控模式 Web 管理系统的安装和首次初始化流程。
@@ -9,7 +15,7 @@
 正式安装前，建议逐项核对：
 
 - PXVIRT 已经安装完成。
-- 已准备一台 Debian(12或者13版本)或者openeuler 24版本 主机或虚拟机安装 PXVDI Server。最低配置为2核4G内存16G磁盘。也可以使用我们[预构建的镜像](../pxvdiserver-img.md)
+- 已准备一台 Debian(12或者13版本)或者openeuler 24版本 主机或虚拟机安装 PXVDI Server。最低配置为2核4G内存16G磁盘。也可以使用我们[预构建的镜像](../../pxvdiserver-img.md)
 - 已准备数据库地址、端口、账号和密码（可选）。
 - 浏览器可以访问 PXVDI Server 监听的 `3002` 端口。
 - PXVDI Server所在的网络可以访问 PXVIRT 管理地址。
@@ -20,7 +26,7 @@
 | --- | --- | --- | --- |--- |
 | PXVIRT | 提供底层虚拟化能力 | 必须 | 物理服务器 |所有虚拟机和集群资源的底座 |
 | PXVDI Server | 提供 Web 管理平台和交付逻辑 | 必须 | 虚拟机 |当前这套管理系统 |
-| MySQL | 提供平台数据库 | 按需 | 虚拟机，可和PXVDI Server一起 | 初始化时要连接 |
+| MySQL | 提供外部数据库 | 可选 | 可与 PXVDI Server 同机或独立部署 | 也可选择内置数据库 |
 | PXVDI HTML5 | 提供浏览器接入能力 | 按需 | 虚拟机| 需要浏览器访问桌面时部署 |
 | PXVDI Stream | 提供自研远控和集中控制能力 | 按需 | 被远程访问的虚拟机| 需要远控或集中控制时使用 |
 | PXVDI 客户端 / 瘦终端 | 供终端用户接入桌面 | 按需 | 终端设备| 视终端接入方式而定 |
@@ -69,7 +75,7 @@ FLUSH PRIVILEGES;
 
 主程序下载地址 `https://mirrors.lierfang.com/pxcloud/pxvdi/MIDServer/server/`
 
-有6个版本，按架构和系统类型选择对应包：
+按架构和系统类型选择对应安装包：
 
 | 文件名 | 架构 | 适用处理器示例 | 适用系统 |
 | --- | --- | --- | --- |
@@ -114,8 +120,14 @@ https://服务器地址:3002
 - `https://10.13.14.121:3002`
 
 
-![alt text](../../img/install-new-1.png)
-
+<DocScreenshot
+  :src="exampleShot1"
+  alt="第三步：打开初始化页面操作示例，第 1 图"
+  caption="图 1：第三步：打开初始化页面操作示例。"
+  variant="full"
+  :width="1106"
+  :height="1232"
+/>
 如果浏览器打不开，优先检查：
 
 - 服务是否启动
@@ -142,8 +154,14 @@ https://服务器地址:3002
 
 数据库初始化完成后，系统会继续要求配置 PXVIRT 连接。
 
-![alt text](../../img/install-new-2.png)
-
+<DocScreenshot
+  :src="exampleShot2"
+  alt="第五步：配置 PXVIRT 连接操作示例，第 2 图"
+  caption="图 2：第五步：配置 PXVIRT 连接操作示例。"
+  variant="full"
+  :width="1090"
+  :height="1226"
+/>
 | 字段 | 含义 | 推荐值 / 示例 | 注意事项 |
 | --- | --- | --- | --- |
 | PXVIRT 主机地址 | 要对接的 PXVIRT |PVE管理地址 | `10.10.10.10` | 一般不需要写路径 |
@@ -160,6 +178,11 @@ https://服务器地址:3002
 - 用户名：`admin`
 - 密码：`P@SSw0rd`
 
-![alt text](../../img/install-new-3.png)
-
-进入系统之后，可去主页顶部用户图标处，修改默认密码！
+<DocScreenshot
+  :src="exampleShot3"
+  alt="第六步：首次登录系统操作示例，第 3 图"
+  caption="图 3：第六步：首次登录系统操作示例。"
+  variant="full"
+  :width="1000"
+  :height="1062"
+/>

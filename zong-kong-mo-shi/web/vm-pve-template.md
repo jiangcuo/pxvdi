@@ -1,4 +1,8 @@
-# 普通桌面池
+<script setup>
+import exampleShot1 from '../../img/pool9.png'
+</script>
+
+# PVE 模板管理
 
 普通桌面池是相对于快照桌面池来说的，他是普通虚拟机的集合。集群中任意VM都可以被添加到这个桌面池。
 
@@ -6,9 +10,14 @@
 
 可以在`虚拟机管理`—>`PVE模板管理`中进行批量克隆。在克隆的时候，可以批量加入到`普通桌面池`
 
-![alt text](../../img/pool9.png)
-
-
+<DocScreenshot
+  :src="exampleShot1"
+  alt="通过克隆添加VM到普通桌面池操作示例，第 1 图"
+  caption="图 1：通过克隆添加VM到普通桌面池操作示例。"
+  variant="full"
+  :width="3176"
+  :height="1270"
+/>
 ## 普通桌面池模板要求
 
 普通桌面池模板是PVE原生的模板。

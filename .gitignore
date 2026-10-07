@@ -1,4 +1,7 @@
 .vitepress/cache
+.vitepress/dist/
+.vitepress/.temp/
+.cursor/
 _book
 node_modules
 .DS_Store

@@ -1,9 +1,21 @@
+<script setup>
+import exampleShot1 from '../../img/vmmgr-new.png'
+import exampleShot2 from '../../img/vmmgr-new-1.png'
+import exampleShot3 from '../../img/vmmgr-new-2.png'
+import exampleShot4 from '../../img/vmmgr-new-3.png'
+</script>
+
 # 桌面管理
 
 桌面管理用于查看平台中的普通虚拟机，并执行最常用的日常运维动作。
-![alt text](../../img/vmmgr-new.png)
-
-
+<DocScreenshot
+  :src="exampleShot1"
+  alt="桌面管理操作示例，第 1 图"
+  caption="图 1：桌面管理操作示例。"
+  variant="full"
+  :width="2602"
+  :height="1058"
+/>
 ## 1. 创建虚拟机
 
 本弹窗创建虚拟机和在PVE创建虚拟机基本一致，在2处地方创建均可！
@@ -75,15 +87,26 @@
 
 点击分配按钮可以分配
 
-![alt text](../../img/vmmgr-new-1.png)
-
+<DocScreenshot
+  :src="exampleShot2"
+  alt="4.1 单一分配操作示例，第 2 图"
+  caption="图 2：4.1 单一分配操作示例。"
+  variant="settings"
+  :width="660"
+  :height="246"
+/>
 ### 4.2 批量分配功能
 
 点击顶部批量分配用户，可以进行对多个虚拟机和多个用户同时操作
 
-![alt text](../../img/vmmgr-new-2.png)
-
-
+<DocScreenshot
+  :src="exampleShot3"
+  alt="4.2 批量分配功能操作示例，第 3 图"
+  caption="图 3：4.2 批量分配功能操作示例。"
+  variant="full"
+  :width="1476"
+  :height="1096"
+/>
 ### 5 批量功能
 
 点击批量，勾选列表虚拟机即可
@@ -93,5 +116,11 @@
 批量停止是强制关闭虚拟机，批量销毁，请先关闭虚拟机。
 
 
-![alt text](../../img/vmmgr-new-3.png)
-
+<DocScreenshot
+  :src="exampleShot4"
+  alt="5 批量功能操作示例，第 4 图"
+  caption="图 4：5 批量功能操作示例。"
+  variant="full"
+  :width="1118"
+  :height="844"
+/>

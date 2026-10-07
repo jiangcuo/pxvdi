@@ -47,11 +47,11 @@ PXVDIStream 是 PXVDI 自研的串流协议，默认开启，深度集成在管�
 它的价值在于：
 
 - **无 GPU 也能高性能**：即便虚拟机不带 GPU，也能实现 60fps 低延迟远程。
-- **有 vGPU 则极省 CPU**：在 1080p@60 场景下，纯软件编码约消耗 2 个 CPU（以 E5-2670v4 为基准），如果有 vGPU 硬件编码（以nvidia p4-1q为基准）后可降至 0.2–0.4 个 CPU，几乎忽略不计！
+- **硬件编码分担 CPU 负载**：有可用 GPU 编码器时，可由 GPU 承担视频编码。不同平台的资源要求与实测参考统一见[硬件要求](../pxvdistream/HardwareRequire.md)。
 - **全端覆盖**：PC、手机、平板、Web 共同兼容；还提供嵌入式系统包，利用嵌入式 GPU 做硬件解码，在极低配置终端上也能获得良好体验。
 - **天然支持外网**：部署 PXVDI HTML5 组件即可完成网页版访问与外网连接。
 
-> 部署方式与硬件编码要求，参考 [PXVDIStream 操作说明](./vm/pxvdistreamvm.md)。
+> 部署步骤见[安装与配置 Agent](../pxvdistream/install.md)，产品能力与运行要求见[PXVDIStream 文档](../pxvdistream/index.md)。
 
 ## 四、产品多用
 

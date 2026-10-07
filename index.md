@@ -23,7 +23,7 @@ features:
     link: /zong-kong-mo-shi/xinchuang
   - title: 自研 PXVDIStream
     details: 默认开启的自研串流协议，即便虚拟机不带 GPU 也能 60fps 低延迟远程，PC、手机、平板、Web 全端兼容。
-    link: /zong-kong-mo-shi/vm/pxvdistreamvm
+    link: /pxvdistream/index
   - title: 纳管外部桌面
     details: 直接接管现有 VMware、Hyper-V、KVM、物理机，无需推倒重来即可统一管理，平滑迁移。
     link: /zong-kong-mo-shi/web/external-desktop
