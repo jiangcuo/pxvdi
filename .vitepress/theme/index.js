@@ -1,9 +1,13 @@
 import DefaultTheme from 'vitepress/theme'
 import { onMounted, watch, nextTick } from 'vue'
 import { useRoute } from 'vitepress'
+import DocScreenshot from './DocScreenshot.vue'
 
 export default {
   extends: DefaultTheme,
+  enhanceApp({ app }) {
+    app.component('DocScreenshot', DocScreenshot)
+  },
   setup() {
     const route = useRoute()
 
