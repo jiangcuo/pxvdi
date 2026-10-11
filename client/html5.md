@@ -13,85 +13,12 @@ PXVDI HTML5 有3个功能。
 ## 硬件要求
 PXVDI HTML5 客户端需要cpu大于4核 内存大于1G 即可
 
-架构支持arm64、amd64、loongarch64、riscv64、嵌入式设备
+架构支持arm64、amd64、loongarch64、riscv64、嵌入式设备。
 
 ## 安装pxvdihtml5
 
-### Docker 安装
-
-```bash
-docker run -idt --name pxvdihtml5 --restart=awlays -p 443:443 -p 9091:9091 -v ~/.lierfang:/root/.lierfang lierfang/pxvdihtml5
-```
-
-或者使用镜像站点
-
-```bash
-docker run -idt --name pxvdihtml5 --restart=awlays -p 443:443 -p 9091:9091 -v ~/.lierfang:/root/.lierfang docker.1ms.run/lierfang/pxvdihtml5
-```
-
-
-### debian 系列
-添加apt key
-
-```bash
-curl -L https://mirrors.lierfang.com/pxcloud/lierfang.gpg -o /etc/apt/trusted.gpg.d/lierfang.gpg
-
-```
-添加源
-
-```bash
-echo "deb https://mirrors.lierfang.com/pxcloud/pxvdi bookworm main" > /etc/apt/sources.list.d/pxvdi-sources.list
-```
-
-安装pxvdihtml5
-
-```bash
-apt update 
-apt install pxvdihtml5
-systemctl enable pxvdihtml5
-```
-
-### 其他系统
 
 前往https://mirrors.lierfang.com/pxcloud/pxvdi/Html5/ 下载对应的架构和版本
-
-文件类似如下
-```
-文件名 + 版本 + 架构
-pxvdihtml5_v1.0.6_aarch64
-```
-
-可以使用下面命令快速下载
-```
-wget https://mirrors.lierfang.com/pxcloud/pxvdi/Html5/pxvdihtml5_latest_`arch`
-```
-
-如果没有wget，可以使用curl
-
-```
-curl -L -O https://mirrors.lierfang.com/pxcloud/pxvdi/Html5/pxvdihtml5_latest_`arch`
-```
-
-下载好了 赋予执行权限
-```
-chmod +x pxvdihtml5_latest_`arch`
-```
-
-移动文件到/usr/sbin/下面
-```
-mv  pxvdihtml5_latest_`arch` /usr/sbin/pxvdihtml5
-```
-
-随后执行命令 安装服务
-```
-pxvdihtml5 --install
-```
-
-启动服务
-```
-systemctl start pxvdihtml5
-```
-
 
 
 ## 配置 pxvdihtml5
