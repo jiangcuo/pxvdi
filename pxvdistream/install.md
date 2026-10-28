@@ -15,7 +15,7 @@ PXVDIStream Agent 安装在需要被远程访问的桌面上，适用于虚拟�
 ## Windows 安装
 
 1. 在目标桌面运行 Windows 安装程序，按安装向导完成服务及相应组件安装。
-2. 在实际安装目录找到 `pxvdistream.conf`。常见目录为 `C:\Program Files (x86)\lierfang\pxvdistream`，自定义安装时以实际位置为准。
+2. 在实际安装目录找到 `pxvdistream.conf`。配置目录为 `C:\Program Files\lierfang\pxvdistream`，自定义安装时以实际位置为准。
 3. 使用管理员权限编辑配置；也可先复制文件到可编辑位置，修改后再放回原安装目录。
 4. 按下文配置平台地址，保存后在 Windows 服务管理器中重启 PXVDIStream 服务，或重启桌面系统。
 
@@ -110,32 +110,16 @@ sudo journalctl -u xrdp -u xrdp-sesman -n 100 --no-pager
 
 部分发行版还将详细信息写入 `/var/log/xrdp-sesman.log`。先检查认证与会话创建，再检查 Agent 捕获；具体排查项见下文。
 
-## 配置 PXVDI Server 地址
 
-在 `pxvdistream.conf` 中取消 `apiserver` 行前的注释，填写平台的**主机或域名与端口**：
+## 使用外部桌面部署
 
-```ini
-apiserver=192.0.2.10:3002
-```
-
-例如管理系统通过 `https://192.0.2.10:3002` 访问，这里仍填写 `192.0.2.10:3002`，不添加 `https://`、`wss://` 或页面路径。Agent 会使用加密连接访问平台。
-
-<DocScreenshot
-  :src="configExample"
-  alt="Windows 配置文件中填写 apiserver 主机与端口的示例"
-  caption="图 1：apiserver 配置示例。请替换为实际管理平台地址。"
-  variant="settings"
-  :width="802"
-  :height="483"
-/>
-
-### 桌面 UUID
-
-外部桌面通过 UUID 与平台记录对应。在 Agent 配置中填写稳定且唯一的 UUID，并在平台中使用同一值：
+因为外部桌面不受pxvdi平台的虚拟化管理和认证，因此需要指定一个UUID 代表这个桌面的唯一属性，外部桌面通过 UUID 与平台记录对应。在 Agent 配置中填写稳定且唯一的 UUID，并在平台中使用同一值：
 
 ```ini
 uuid=64a27ef4-901c-0213-e48c-bd7922d1933b
 ```
+
+这样就可以在 管理平台中的 [外部桌面](../zong-kong-mo-shi/web/external-desktop.md) 添加对应的UUID 和 桌面名称即可进行安装。
 
 示例 UUID 仅用于展示格式，请为每台桌面生成自己的值。平台内的添加入口和 UUID 生成工具见[外部桌面](../zong-kong-mo-shi/web/external-desktop.md)。平台管理的虚拟机应保持 Agent 与平台识别到的资源标识一致。
 

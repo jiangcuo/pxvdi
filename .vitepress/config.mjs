@@ -138,6 +138,7 @@ export default defineConfig({
                 { text: '认识多种连接方式',link: '/lian-jie-xie-yi' },
                 { text: '创建虚拟机', link: '/zong-kong-mo-shi/vm/createvm' },
                 { text: '配置 RDP 服务', link: '/zong-kong-mo-shi/vm/rdpvm' },
+                { text: '配置 PXVDIStream 服务', link: '/zong-kong-mo-shi/vm/pxvdistreamvm' },
                 { text: 'SPICE 部署（旧版方案）', link: '/zong-kong-mo-shi/vm/spicevm' },
                 { text: 'Moonlight 部署（旧版方案）', link: '/zong-kong-mo-shi/vm/moonlightvm' },
                 { text: '模板虚拟机管理', link: '/zong-kong-mo-shi/vm/templatevm' },

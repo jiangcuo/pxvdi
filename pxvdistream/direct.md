@@ -6,9 +6,9 @@ import shotEmbeddedSession from '../img/client-settings/embedded-session.png'
 
 # 独立直连
 
-独立直连使用 **PXVDI 桌面客户端的本地连接模式**，直接访问安装了 PXVDIStream Agent 的虚拟机或物理机，无需先登录云桌面平台。主机地址、协议和账号保存在本地连接卡片中，后续点击卡片即可连接。
+独立直连使用 **PXVDI 桌面客户端的本地连接模式**，直接访问安装了 PXVDIStream Agent 的虚拟机或物理机，无需先登录云桌面平台。主机地址、协议和账号保存在本地连接卡片中，后续点击卡片即可连接。独立直连是为了防止服务端故障，需要紧急连接的情况设计，或者不想经过服务端流量。本功能仍需要服务器具有对应的授权席位 和 桌面池策略。
 
-本文说明 PXVDIStream 的直连流程。截图采自 macOS 版桌面客户端，Windows、Linux 客户端的可用选项以实际版本为准。
+本文说明 PXVDIStream 的直连流程。
 
 ## 连接前准备
 
