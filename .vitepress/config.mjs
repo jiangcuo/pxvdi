@@ -174,7 +174,7 @@ export default defineConfig({
       {
         text: 'PXVDIStream 文档',
         link: '/pxvdistream/index',
-        collapsed: true,
+        collapsed: false,
         items: [
            { text: '技术白皮书', link: '/pxvdistream/README' },
            { text: '系统兼容性', link: '/pxvdistream/SystemRequire' },
