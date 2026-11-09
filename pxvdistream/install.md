@@ -25,27 +25,6 @@ PXVDIStream Agent 安装在需要被远程访问的桌面上，适用于虚拟�
 
 Linux 标准部署采用 **XRDP + xorgxrdp** 提供独立的 X11 用户会话，适用于虚拟机、物理机及没有物理显示器的主机。PXVDIStream 使用本机 `xrdp-sesman` 认证系统用户、创建或恢复会话，再捕获对应桌面并向客户端串流。
 
-### 准备 XRDP 会话环境
-
-以 Debian/Ubuntu 和 XFCE 为例：
-
-```bash
-sudo apt update
-sudo apt install xrdp xorgxrdp xfce4 dbus-x11 x11-utils -y
-sudo systemctl enable --now xrdp
-sudo systemctl status xrdp xrdp-sesman
-```
-
-已有可用桌面环境时，可按发行版的 XRDP 配置使用该桌面；其他发行版需安装对应的 XRDP、xorgxrdp 和桌面软件包。仅安装 XRDP 服务而没有可启动的 Xorg 桌面环境，不能完成会话部署。
-
-为每位使用者准备实际的 Linux 系统账号和密码，并确认其主目录可写、PAM 和 XRDP 用户组策略允许登录。使用 XFCE 时，在**目标桌面用户**的登录终端中编辑 `~/.xsession`，写入以下内容：
-
-```sh
-exec startxfce4
-```
-
-该文件属于目标桌面用户，不是运行 Agent 服务的 root 账号。域用户还需先完成 Linux 的域接入，并确认系统能够识别账号、完成 PAM 认证和准备用户主目录。
-
 ### 安装 Agent 服务
 
 本文以 AppImage 安装包和 systemd 为例。将下载的对应架构文件重命名为 `pxvdistream.AppImage` 后执行：
@@ -71,7 +50,26 @@ sudoedit /root/.lierfang/pxvdistream.conf
 
 以上路径适用于默认 root 服务；自定义运行账号时改用该账号的配置路径。
 
-### 启用 XRDP 独立会话
+### 以多会话模式部署
+
+以 Debian/Ubuntu 和 XFCE 为例：
+
+```bash
+sudo apt update
+sudo apt install xrdp xorgxrdp xfce4 dbus-x11 x11-utils -y
+sudo systemctl enable --now xrdp
+sudo systemctl status xrdp xrdp-sesman
+```
+
+已有可用桌面环境时，可按发行版的 XRDP 配置使用该桌面；其他发行版需安装对应的 XRDP、xorgxrdp 和桌面软件包。仅安装 XRDP 服务而没有可启动的 Xorg 桌面环境，不能完成会话部署。
+
+为每位使用者准备实际的 Linux 系统账号和密码，并确认其主目录可写、PAM 和 XRDP 用户组策略允许登录。使用 XFCE 时，在**目标桌面用户**的登录终端中编辑 `~/.xsession`，写入以下内容：
+
+```sh
+exec startxfce4
+```
+
+该文件属于目标桌面用户，不是运行 Agent 服务的 root 账号。域用户还需先完成 Linux 的域接入，并确认系统能够识别账号、完成 PAM 认证和准备用户主目录。
 
 在 Agent 配置中启用 `rdsh`，并指定 X11 捕获。平台接入示例：
 
@@ -88,6 +86,38 @@ capture_mode=x11
 会话显示号由 XRDP 分配，无需固定 `display_number`、`x11_user` 或启动 Xvfb，也无需先在物理控制台登录。独立直连的账号说明见[独立直连](./direct.md#linux-xrdp-会话直连)。
 
 当前版本使用 `capture_mode` 指定捕获方式，命令行参数对应 `--capture-mode`。旧 `display-mode` / `display_mode` 已废弃并被忽略；旧 `systemauth` 键仍兼容，但新配置应使用 `rdsh`，两者同时存在时以 `rdsh` 为准。
+
+### 以单用户模式部署
+在配置文件里面设置rdsh 为false或者不指定即可。
+
+```ini
+apiserver=192.0.2.10:3002
+rdsh=false
+capture_mode=x11
+```
+
+### 直连模式
+
+pxvdistream支持和客户端直接连接，不经过pxvdiserver,
+
+```ini
+rdsh=false
+capture_mode=x11
+username=xxx
+password=xxx
+```
+只需要配置账号密码即可。
+
+### web直连访问
+
+```ini
+rdsh=false
+capture_mode=x11
+username=xxx
+password=xxx
+web=true
+```
+开启web就可以通过https://ip:9923 网页访问
 
 ### 启动与检查服务
 
