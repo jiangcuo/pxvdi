@@ -7,5 +7,10 @@
   "dependencies": {
     "mermaid": "^11.4.0",
     "vitepress": "^2.0.0-alpha.4"
+  },
+  "overrides": {
+    "vue": {
+      "@vue/server-renderer": "3.5.42"
+    }
   }
 }
