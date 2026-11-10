@@ -346,22 +346,6 @@ Moonlight 的码率和帧率同样在**常规 → 视频配置**中设置。没�
 
 需要向远端发送系统组合键时，建议使用**发送按键**菜单。上述三组快捷键由本地客户端处理。
 
-## 3. Pxvdi-thin-client 嵌入式瘦客户端
-
-Pxvdi-thin-client 面向资源受限的嵌入式终端，在 4.x 版本瘦客户端系统中作为默认客户端。部署和配置请参阅[瘦客户端说明](./ThinClient.md)。
-
-## 4. Pxvdistream SDL 客户端使用
-
-Pxvdistream 是独立的 PXVDI SDL 客户端，支持硬件解码。可在**设置 → PXVDI → 使用外部 SDL 客户端**中启用，实际解码能力与性能取决于终端硬件和驱动。
-
-单独下载请前往 [Pxvdistream 下载目录](https://mirrors.lierfang.com/pxcloud/pxvdi/PxvdiStream/)。
-
-| 快捷键 | 功能 |
-| --- | --- |
-| `Ctrl + Alt + Shift + Q` | 强制关闭客户端 |
-| `Ctrl + Alt + Shift + S` | 显示或隐藏悬浮菜单 |
-| `Ctrl + Alt + Shift + M` | 切换相对鼠标模式，适用于 FPS 等需要持续捕获鼠标的场景 |
-
 ### 悬浮菜单
 
 悬浮菜单提供 USB 重定向、文件管理和安全键盘等功能，具体可用项取决于会话及服务器配置。
